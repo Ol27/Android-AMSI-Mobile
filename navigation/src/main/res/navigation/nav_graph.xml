@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/feedFragment">
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.test.feed.ui.FeedFragment"
+        android:label="Feed" />
+
+    <fragment
+        android:id="@+id/eventsListFragment"
+        android:name="com.test.events.ui.EventsListFragment"
+        android:label="Events" >
+        <action
+            android:id="@+id/action_eventsListFragment_to_eventFragment"
+            app:destination="@id/eventFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventFragment"
+        android:name="com.test.events.ui.EventFragment"
+        android:label="Event" >
+        <argument
+            android:name="eventId"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
+
+</navigation>

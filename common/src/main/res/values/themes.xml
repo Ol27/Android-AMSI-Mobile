@@ -1,0 +1,19 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.Amsi" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#E6511C</item>
+        <item name="colorPrimaryVariant">#E6511C</item>
+        <item name="colorOnPrimary">#E6511C</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#E6511C</item>
+        <item name="colorSecondaryVariant">#E6511C</item>
+        <item name="colorOnSecondary">#E6511C</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>
