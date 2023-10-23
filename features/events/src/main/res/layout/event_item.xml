@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="#FFFFFF"
     app:cardElevation="0dp"
-    android:layout_margin="8dp"
+    android:layout_marginBottom="17dp"
     app:cardCornerRadius="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:gravity="center"
-                    android:text="29"
+                    android:text="4"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     app:fontFamily="@font/noto_sans_bold" />
@@ -62,7 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:gravity="center"
-                    android:text="Mar"
+                    android:text="Sep"
                     android:textColor="#6F747C"
                     android:textSize="8sp"
                     app:fontFamily="@font/noto_sans" />
@@ -73,7 +73,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:padding="15dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/card_event_image"
@@ -83,7 +86,7 @@
                 android:id="@+id/materialTextView5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Some event name special big name event"
+                android:text="Self improving stories: A Amazing Workshop"
                 android:textColor="#111827"
                 android:textSize="14sp"
                 app:fontFamily="@font/noto_sans_bold"

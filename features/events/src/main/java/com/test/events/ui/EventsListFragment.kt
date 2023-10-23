@@ -1,6 +1,7 @@
 package com.test.events.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.test.events.adapter.EventsAdapter
 import com.test.events.databinding.FragmentEventsListBinding
 import com.test.events.model.Event
+import com.test.main.MainActivity
 
 class EventsListFragment : Fragment() {
     private lateinit var binding: FragmentEventsListBinding
@@ -19,12 +21,13 @@ class EventsListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentEventsListBinding.inflate(inflater, container, false)
+        (activity as MainActivity).getNavigationView().visibility = View.VISIBLE
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val eventsAdapter = EventsAdapter()
+        val eventsAdapter = EventsAdapter { event -> navigateToEventScreen(event) }
         binding.rvEventsList.apply {
             adapter = eventsAdapter
             layoutManager = LinearLayoutManager(requireContext())

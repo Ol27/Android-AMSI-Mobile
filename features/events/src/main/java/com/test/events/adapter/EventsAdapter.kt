@@ -1,6 +1,8 @@
 package com.test.events.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -12,8 +14,9 @@ import com.test.events.databinding.FragmentEventBinding
 import com.test.events.databinding.FragmentEventsListBinding
 import com.test.events.model.Event
 
-class EventsAdapter
-    : ListAdapter<Event, EventsAdapter.EventsViewHolder>(DiffFactory.DiffCallback()) {
+class EventsAdapter(
+    private val onEventClicked: (Event) -> Unit
+) : ListAdapter<Event, EventsAdapter.EventsViewHolder>(DiffFactory.DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventsViewHolder
         = EventsViewHolder(EventItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -21,6 +24,9 @@ class EventsAdapter
 
     override fun onBindViewHolder(holder: EventsViewHolder, position: Int) {
         holder.bind(getItem(position))
+        holder.binding.cardEvent.setOnClickListener {
+            onEventClicked(getItem(position))
+        }
     }
 
     inner class EventsViewHolder(val binding: EventItemBinding) : ViewHolder(binding.root) {

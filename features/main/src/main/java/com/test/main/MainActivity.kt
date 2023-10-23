@@ -1,7 +1,9 @@
 package com.test.main
 
+import android.view.View
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.test.common.base.BaseActivity
 import com.test.main.databinding.ActivityMainBinding
 
@@ -15,4 +17,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         binding.bottomNavigationView.setupWithNavController(navController)
     }
 
+    fun getNavigationView(): View {
+        return binding.navBarView
+    }
 }
