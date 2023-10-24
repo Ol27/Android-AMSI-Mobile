@@ -1,53 +1,59 @@
 package com.test.events.ui
 
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
-import android.content.Context.CLIPBOARD_SERVICE
 import android.content.Intent
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.test.common.base.BaseFragment
+import com.test.common.ext.StringExt.Companion.toDate
+import com.test.common.ext.ViewExt.Companion.copyToClipboard
 import com.test.events.databinding.FragmentEventBinding
-import com.test.main.MainActivity
-import java.util.Calendar
+import com.test.events.model.Event
 
 
-class EventFragment : Fragment() {
-    private lateinit var binding: FragmentEventBinding
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentEventBinding.inflate(inflater, container, false)
-        val eventId = requireArguments().getLong(ARG_EVENT_ID)
-        (activity as MainActivity).getNavigationView().visibility = View.GONE
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+class EventFragment : BaseFragment<FragmentEventBinding>(FragmentEventBinding::inflate) {
+    private var event: Event? = null
+    override fun initView() {
+        event = requireArguments().getParcelable(ARG_EVENT)
+        event?.let { setupData(it) }
         binding.btnBack.setOnClickListener {
             findNavController().popBackStack()
         }
         binding.btnCopyToClipboard.setOnClickListener {
-            val clipboardManager = context?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            val clipData = ClipData.newPlainText("Address", binding.materialTextViewAddress.text)
-            clipboardManager.setPrimaryClip(clipData)
+            binding.materialTextViewAddress.copyToClipboard("Address")
         }
         binding.btnAddToCalendar.setOnClickListener {
-            val intent = Intent(Intent.ACTION_EDIT)
-            intent.type = "vnd.android.cursor.item/event"
-            intent.putExtra("title", binding.materialTextViewEventTitle.text)
-            startActivity(intent)
+            event?.let { addEventToCalendar(it) }
         }
     }
 
+    private fun setupData(event: Event) = with(binding) {
+        materialTextViewEventTitle.text = event.name
+        materialTextViewDate.text = event.weekDay
+        materialTextViewDay.text = event.dayDate
+        materialTextViewTime.text = event.time + " - " + event.endTime
+        materialTextViewAddress.text = event.address
+        materialTextViewContactInfo.text = event.phone
+        materialTextAboutEvent.text = event.aboutInto
+    }
+
+    private fun addEventToCalendar(event: Event) {
+        val intent = Intent(Intent.ACTION_EDIT)
+        intent.type = "vnd.android.cursor.item/event"
+        intent.putExtra("title", event.name)
+        intent.putExtra("description", event.aboutInto)
+        val date = event.dateTime.toDate("yyyy-MM-dd HH:mm")
+        if (date != null) {
+            intent.putExtra("beginTime", date.time)
+        }
+        intent.putExtra("eventLocation", event.address)
+        try {
+            startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+    }
+
     companion object {
-        const val ARG_EVENT_ID = "event_id"
+        const val ARG_EVENT = "event"
     }
 }

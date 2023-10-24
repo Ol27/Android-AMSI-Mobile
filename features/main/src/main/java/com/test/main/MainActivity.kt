@@ -15,9 +15,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     override fun initView() {
         binding.bottomNavigationView.setupWithNavController(navController)
+        addDestinationChangeListener()
     }
-
-    fun getNavigationView(): View {
-        return binding.navBarView
+    private fun addDestinationChangeListener() {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == com.test.navigation.R.id.eventFragment) {
+                binding.navBarView.visibility = View.GONE
+            } else {
+                binding.navBarView.visibility = View.VISIBLE
+            }
+        }
     }
 }

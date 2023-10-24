@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_white"
+    android:background="@color/white"
+    android:paddingTop="12dp"
     tools:context=".ui.EventFragment"
     android:paddingHorizontal="24dp">
 
@@ -12,7 +13,6 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,7 +22,7 @@
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:backgroundTint="@color/background_white"
+            android:backgroundTint="@color/white"
             android:elevation="0dp"
             android:insetLeft="0dp"
             android:insetTop="0dp"
@@ -83,25 +83,24 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/materialTextViewAboutThisEvent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/constraintLayout2">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_event_big_image"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 app:cardCornerRadius="14dp"
-                app:cardElevation="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:cardElevation="0dp">
 
                 <ImageView
                     android:id="@+id/imageViewEventBigTitle"
@@ -121,10 +120,7 @@
                 android:fontFamily="@font/noto_sans_bold"
                 android:text="Self improving stories: A Amazing Workshop"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card_event_big_image">
+                android:textSize="20sp">
 
             </com.google.android.material.textview.MaterialTextView>
 
@@ -132,10 +128,7 @@
                 android:id="@+id/constraintLayout3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materialTextViewEventTitle">
+                android:layout_marginTop="20dp">
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/materialCardView"
@@ -196,8 +189,7 @@
                         android:fontFamily="@font/noto_sans_bold"
                         android:text="Friday"
                         android:textColor="@color/black"
-                        android:textSize="14sp">
-                    </com.google.android.material.textview.MaterialTextView>
+                        android:textSize="14sp"></com.google.android.material.textview.MaterialTextView>
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/materialTextViewTime"
@@ -207,8 +199,7 @@
                         android:fontFamily="@font/noto_sans"
                         android:text="10:00 PM - End"
                         android:textColor="@color/gray"
-                        android:textSize="12sp">
-                    </com.google.android.material.textview.MaterialTextView>
+                        android:textSize="12sp"></com.google.android.material.textview.MaterialTextView>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <com.google.android.material.button.MaterialButton
@@ -240,10 +231,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -270,10 +258,7 @@
                 android:id="@+id/constraintLayout4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat1">
+                android:layout_marginTop="8dp">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/materialTextViewAddress"
@@ -294,13 +279,13 @@
                     style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:backgroundTint="@color/background_white"
+                    android:backgroundTint="@color/white"
                     android:elevation="0dp"
                     android:insetLeft="0dp"
                     android:insetTop="0dp"
                     android:insetRight="0dp"
                     android:insetBottom="0dp"
-                    app:cornerRadius="12dp"
+                    app:cornerRadius="8dp"
                     app:icon="@drawable/copy_icon"
                     app:iconGravity="textStart"
                     app:iconPadding="0dp"
@@ -318,10 +303,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -345,16 +327,14 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialTextContactInfo"
+                android:id="@+id/materialTextViewContactInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/noto_sans"
                 android:text="+1 100 12 467"
                 android:textColor="@color/gray"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/linearLayoutCompat2">
+                android:textSize="14sp">
 
             </com.google.android.material.textview.MaterialTextView>
 
@@ -367,9 +347,7 @@
                 android:fontFamily="@font/noto_sans_bold"
                 android:text="About this events"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/materialTextContactInfo">
+                android:textSize="16sp">
 
             </com.google.android.material.textview.MaterialTextView>
 
@@ -381,13 +359,13 @@
                 android:fontFamily="@font/noto_sans"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                 android:textColor="@color/gray"
-                android:textSize="14sp"
-                android:paddingBottom="24dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/materialTextViewAboutThisEventTitle">
-            </com.google.android.material.textview.MaterialTextView>
+                android:textSize="14sp"></com.google.android.material.textview.MaterialTextView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="96dp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
 

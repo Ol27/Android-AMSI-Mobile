@@ -31,7 +31,11 @@ class EventsAdapter(
 
     inner class EventsViewHolder(val binding: EventItemBinding) : ViewHolder(binding.root) {
         fun bind(event: Event) = with(binding) {
-
+            textEventName.text = event.name
+            textMonthDate.text = event.monthDate
+            textEventCity.text = event.city
+            textEventTime.text = event.time
+            textDayDate.text = event.dayDate
         }
     }
 }

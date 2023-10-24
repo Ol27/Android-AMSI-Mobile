@@ -25,6 +25,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/image_event_logo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -48,6 +49,7 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_dayDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -58,6 +60,7 @@
                     app:fontFamily="@font/noto_sans_bold" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_monthDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -83,7 +86,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialTextView5"
+                android:id="@+id/text_event_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Self improving stories: A Amazing Workshop"
@@ -102,7 +105,7 @@
                 app:layout_constraintStart_toStartOf="parent">
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/materialTextView6"
+                    android:id="@+id/text_event_city"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="California"
@@ -122,11 +125,12 @@
                     android:textColor="#EB683A"
                     android:textSize="12sp"
                     app:fontFamily="@font/noto_sans_bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/materialTextView6"
-                    app:layout_constraintStart_toEndOf="@+id/materialTextView6"
-                    app:layout_constraintTop_toTopOf="@+id/materialTextView6" />
+                    app:layout_constraintBottom_toBottomOf="@+id/text_event_city"
+                    app:layout_constraintStart_toEndOf="@+id/text_event_city"
+                    app:layout_constraintTop_toTopOf="@+id/text_event_city" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_event_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"

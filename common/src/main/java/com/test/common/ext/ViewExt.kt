@@ -1,6 +1,10 @@
 package com.test.common.ext
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
+import android.health.connect.datatypes.units.Length
+import android.os.Build
 import android.text.SpannableString
 import android.text.TextPaint
 import android.text.method.LinkMovementMethod
@@ -8,6 +12,7 @@ import android.text.style.URLSpan
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.text.parseAsHtml
 
 class ViewExt {
@@ -43,6 +48,13 @@ class ViewExt {
             imm?.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
         }
 
-
+        fun TextView.copyToClipboard(label: String) {
+            val clipboardManager = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clipData = ClipData.newPlainText(label, text)
+            clipboardManager.setPrimaryClip(clipData)
+            if (Build.VERSION.SDK_INT < 33) {
+                Toast.makeText(context, "Address copied to clipboard", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
