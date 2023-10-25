@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_eventsListFragment_to_eventFragment"
             app:destination="@id/eventFragment" />
+        <action
+            android:id="@+id/action_eventsListFragment_to_eventsMapFragment"
+            app:destination="@id/eventsMapFragment" />
     </fragment>
 
     <fragment
@@ -28,4 +31,12 @@
             android:defaultValue="0L" />
     </fragment>
 
+    <fragment
+        android:id="@+id/eventsMapFragment"
+        android:name="com.test.events.ui.EventsMapFragment"
+        android:label="Events Map" >
+        <action
+            android:id="@+id/action_eventsMapFragment_to_eventFragment"
+            app:destination="@id/eventFragment" />
+    </fragment>
 </navigation>

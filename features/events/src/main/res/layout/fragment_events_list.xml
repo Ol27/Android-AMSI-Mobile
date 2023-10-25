@@ -11,15 +11,15 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/background_gradient"
         android:paddingHorizontal="16dp"
         android:paddingBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/background_gradient"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/materialTextViewEventTitle"
+            android:id="@+id/tv_event_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/noto_sans_bold"
@@ -34,29 +34,28 @@
         </com.google.android.material.textview.MaterialTextView>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/materialButton"
+            android:id="@+id/btn_events_list_map"
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            app:backgroundTint="@null"
             android:background="@drawable/button_gradient"
             android:elevation="0dp"
             android:insetLeft="0dp"
             android:insetTop="0dp"
             android:insetRight="0dp"
             android:insetBottom="0dp"
+            app:backgroundTint="@null"
             app:cornerRadius="12dp"
             app:icon="@drawable/map_icon"
             app:iconGravity="textStart"
             app:iconPadding="0dp"
             app:iconTint="@null"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/materialButton2"
+            android:id="@+id/btn_events_list_search"
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -73,7 +72,7 @@
             app:iconPadding="0dp"
             app:iconTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/materialButton"
+            app:layout_constraintEnd_toStartOf="@+id/btn_events_list_map"
             app:layout_constraintTop_toTopOf="parent">
 
         </com.google.android.material.button.MaterialButton>
@@ -83,11 +82,10 @@
         android:id="@+id/rv_events_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:background="@color/background_white"
         android:clipToPadding="false"
         android:paddingHorizontal="24dp"
         android:paddingBottom="144dp"
-        android:background="@color/background_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"

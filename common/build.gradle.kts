@@ -46,7 +46,6 @@ dependencies {
     api("io.coil-kt:coil:2.4.0")
     api(project(":navigation"))
 
-
     api("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
     api("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
     api("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
@@ -56,4 +55,6 @@ dependencies {
     api("androidx.fragment:fragment-ktx:1.5.1")
 
     api("androidx.recyclerview:recyclerview:1.3.1")
+
+    api("com.google.android.gms:play-services-maps:17.0.0")
 }

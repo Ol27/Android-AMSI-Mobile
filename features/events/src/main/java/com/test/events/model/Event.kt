@@ -7,14 +7,17 @@ import kotlinx.parcelize.Parcelize
 data class Event(
     val name: String,
     val city: String,
-    val time: String,
-    val dayDate: String,
-    val monthDate: String,
+    val startTime: String,
+    val day: String,
+    val month: String,
     val image: String,
-    val weekDay: String,
+    val week: String,
     val endTime: String,
     val address: String,
     val phone: String,
-    val aboutInto: String,
-    val dateTime: String
+    val about: String,
+    val dateTime: String,
+    var liked: Boolean,
+    val lat:  Double = 0.0,
+    val lng: Double = 0.0
 ) : Parcelable

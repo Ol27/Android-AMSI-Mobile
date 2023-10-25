@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:paddingHorizontal="24dp"
     android:paddingTop="12dp"
-    tools:context=".ui.EventFragment"
-    android:paddingHorizontal="24dp">
+    tools:context=".ui.EventFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnBack"
+            android:id="@+id/btn_event_back"
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="32dp"
             android:layout_height="32dp"
@@ -40,7 +40,7 @@
         </com.google.android.material.button.MaterialButton>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/materialButtonShare"
+            android:id="@+id/btn_event_share"
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -57,11 +57,11 @@
             app:iconPadding="0dp"
             app:iconTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/materialButtonLike"
+            app:layout_constraintEnd_toStartOf="@+id/btn_event_like"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/materialButtonLike"
+            android:id="@+id/btn_event_like"
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -95,25 +95,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_event_big_image"
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_event"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/mock_image"
                 app:cardCornerRadius="14dp"
-                app:cardElevation="0dp">
-
-                <ImageView
-                    android:id="@+id/imageViewEventBigTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/mock_image">
-
-                </ImageView>
-            </com.google.android.material.card.MaterialCardView>
+                app:shapeAppearanceOverlay="@style/RoundedSquare"/>
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialTextViewEventTitle"
+                android:id="@+id/tv_event_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -147,7 +139,7 @@
                         android:orientation="vertical">
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/materialTextViewDay"
+                            android:id="@+id/tv_event_day"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
@@ -159,7 +151,7 @@
                             app:fontFamily="@font/noto_sans_bold" />
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/materialTextViewMonth"
+                            android:id="@+id/tv_event_month"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
@@ -173,7 +165,6 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
-                    android:id="@+id/linearLayoutCompat"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="16dp"
@@ -183,27 +174,27 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/materialTextViewDate"
+                        android:id="@+id/tv_event_week"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/noto_sans_bold"
                         android:text="Friday"
                         android:textColor="@color/black"
-                        android:textSize="14sp"></com.google.android.material.textview.MaterialTextView>
+                        android:textSize="14sp"/>
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/materialTextViewTime"
+                        android:id="@+id/tv_event_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="10:00 PM - End"
                         android:textColor="@color/gray"
-                        android:textSize="12sp"></com.google.android.material.textview.MaterialTextView>
+                        android:textSize="12sp"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAddToCalendar"
+                    android:id="@+id/btn_event_add_to_calendar"
                     style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -261,7 +252,7 @@
                 android:layout_marginTop="8dp">
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/materialTextViewAddress"
+                    android:id="@+id/tv_event_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans"
@@ -275,7 +266,7 @@
                 </com.google.android.material.textview.MaterialTextView>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnCopyToClipboard"
+                    android:id="@+id/btn_event_copy_to_clipboard"
                     style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
@@ -327,7 +318,7 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialTextViewContactInfo"
+                android:id="@+id/tv_event_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -352,14 +343,14 @@
             </com.google.android.material.textview.MaterialTextView>
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialTextAboutEvent"
+                android:id="@+id/tv_event_about"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/noto_sans"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                 android:textColor="@color/gray"
-                android:textSize="14sp"></com.google.android.material.textview.MaterialTextView>
+                android:textSize="14sp"/>
 
             <Space
                 android:layout_width="match_parent"
