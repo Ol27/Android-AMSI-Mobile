@@ -3,7 +3,6 @@ package com.test.main
 import android.view.View
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.test.common.base.BaseActivity
 import com.test.main.databinding.ActivityMainBinding
 
@@ -17,12 +16,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         binding.bottomNavigationView.setupWithNavController(navController)
         addDestinationChangeListener()
     }
+
     private fun addDestinationChangeListener() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == com.test.navigation.R.id.eventFragment) {
-                binding.navBarView.visibility = View.GONE
-            } else {
-                binding.navBarView.visibility = View.VISIBLE
+            when (destination.id) {
+                com.test.navigation.R.id.eventFragment,
+                com.test.navigation.R.id.eventsMapFragment -> binding.navBarView.visibility = View.GONE
+                else -> binding.navBarView.visibility = View.VISIBLE
             }
         }
     }
