@@ -8,7 +8,7 @@ import com.test.common.factory.DiffFactory
 import com.test.feed.databinding.ItemTitleEventsBinding
 import com.test.feed.model.ItemModel
 
-class TitleEventsAdapter :
+class TitleEventsAdapter(private val onAllEventsClicked: () -> Unit) :
     ListAdapter<ItemModel.TitleEvents, TitleEventsAdapter.Holder>(DiffFactory.DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder =
@@ -22,10 +22,13 @@ class TitleEventsAdapter :
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(getItem(position))
+        holder.binding.btnFeedSeeAllEvents.setOnClickListener {
+            onAllEventsClicked()
+        }
     }
 
     inner class Holder(
-        private val binding: ItemTitleEventsBinding,
+        val binding: ItemTitleEventsBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: ItemModel.TitleEvents) = with(binding) {

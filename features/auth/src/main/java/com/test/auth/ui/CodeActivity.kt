@@ -18,13 +18,14 @@ class CodeActivity : BaseActivity<ActivityCodeBinding>(ActivityCodeBinding::infl
 
     private fun initInsetters() = with(binding) {
         statusBarInset(imageView5, imageView3)
-        navInset(materialButton)
+        navInset(btnCodeVerify)
     }
 
     private fun initViews() = with(binding) {
         imageView5.setOnClickListener { finish() }
-        materialButton.setOnClickListener {
+        btnCodeVerify.setOnClickListener {
             startActivity(Intent(this@CodeActivity, NewPassActivity::class.java))
+            finish()
         }
         materialTextView61.setLinkWithColor(
             "We have to send the verification to your<br>email <b><a href=''>an****@mail.com</a></b>.",
@@ -36,6 +37,4 @@ class CodeActivity : BaseActivity<ActivityCodeBinding>(ActivityCodeBinding::infl
     override fun clear() {
         codeViewUtil.clear()
     }
-
-
 }

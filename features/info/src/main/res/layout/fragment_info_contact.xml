@@ -48,7 +48,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:startIconDrawable="@drawable/ic_usa"
+        app:startIconDrawable="@drawable/ic_flag_usa"
         app:startIconTint="@null">
 
         <com.google.android.material.textfield.TextInputEditText

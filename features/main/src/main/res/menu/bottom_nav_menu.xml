@@ -5,7 +5,8 @@
     <item
         android:id="@+id/feedFragment"
         android:icon="@drawable/ic_home"
-        android:title="Feed" />
+        android:title="Feed">
+    </item>
 
     <!-- Events -->
     <item
@@ -15,7 +16,8 @@
 
     <item
         android:id="@+id/placeholder"
-        android:title="" />
+        android:title=""
+        android:enabled="false"/>
 
     <!-- Settings -->
     <item

@@ -5,26 +5,29 @@ import androidx.navigation.fragment.findNavController
 import com.test.common.base.BaseFragment
 import com.test.common.ext.StringExt.Companion.toDate
 import com.test.common.ext.ViewExt.Companion.copyToClipboard
-import com.test.events.R
+import com.test.common.R
 import com.test.events.databinding.FragmentEventBinding
 import com.test.events.model.Event
 
 class EventFragment : BaseFragment<FragmentEventBinding>(FragmentEventBinding::inflate) {
-    private var event: Event? = null
+
+    private val event: Event by lazy {
+        requireArguments().getParcelable(ARG_EVENT)!!
+    }
+
     override fun initView() {
-        event = requireArguments().getParcelable(ARG_EVENT)
-        event?.let { setupData(it) }
+        setupData(event)
         binding.btnEventBack.setOnClickListener {
             findNavController().popBackStack()
         }
         binding.btnEventLike.setOnClickListener {
-            event?.let { likeEvent(it) }
+            likeEvent(event)
         }
         binding.btnEventCopyToClipboard.setOnClickListener {
             binding.tvEventAddress.copyToClipboard("Address")
         }
         binding.btnEventAddToCalendar.setOnClickListener {
-            event?.let { addEventToCalendar(it) }
+            addEventToCalendar(event)
         }
     }
 
@@ -40,12 +43,11 @@ class EventFragment : BaseFragment<FragmentEventBinding>(FragmentEventBinding::i
 
     private fun likeEvent(event: Event) {
         if (event.liked) {
-            binding.btnEventLike.setIconResource(R.drawable.like_icon)
-            event.liked = false
+            binding.btnEventLike.setIconResource(R.drawable.ic_like)
         } else {
-            binding.btnEventLike.setIconResource(R.drawable.like_filled_icon)
-            event.liked = true
+            binding.btnEventLike.setIconResource(R.drawable.ic_like_filled)
         }
+        event.liked = !event.liked
     }
 
     private fun addEventToCalendar(event: Event) {

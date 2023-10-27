@@ -1,9 +1,5 @@
 package com.test.events.ui
 
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.view.LayoutInflater
-import android.view.View
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,8 +7,6 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptor
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
@@ -22,6 +16,7 @@ import com.test.events.R
 import com.test.events.adapter.EventsAdapter
 import com.test.events.databinding.FragmentEventsMapBinding
 import com.test.events.model.Event
+import com.test.events.util.MapUtil
 import com.test.events.util.MockDataUtil
 
 class EventsMapFragment :
@@ -52,36 +47,11 @@ class EventsMapFragment :
             val marker = googleMap.addMarker(
                 MarkerOptions()
                     .position(getLatLngFromMockData(i))
-                    .icon(createCustomMarkerIcon())
+                    .icon(MapUtil.createCustomMarkerIcon(requireContext()))
             )
             marker.tag = event
         }
     }
-
-    private fun createCustomMarkerIcon(): BitmapDescriptor {
-        val customMarkerView =
-            LayoutInflater.from(requireContext()).inflate(R.layout.view_map_marker, null)
-
-        customMarkerView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
-        customMarkerView.layout(
-            0,
-            0,
-            customMarkerView.measuredWidth,
-            customMarkerView.measuredHeight
-        )
-
-        val customMarkerBitmap = Bitmap.createBitmap(
-            customMarkerView.measuredWidth,
-            customMarkerView.measuredHeight,
-            Bitmap.Config.ARGB_8888
-        )
-
-        val canvas = Canvas(customMarkerBitmap)
-        customMarkerView.draw(canvas)
-
-        return BitmapDescriptorFactory.fromBitmap(customMarkerBitmap)
-    }
-
 
     private fun getLatLngFromMockData(itemCount: Int): LatLng {
         return LatLng(

@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#EB683A</color>
     <color name="background_white">#f9f9f9</color>
-    <color name="gray">#9CA3AF</color>
+    <color name="grey">#9CA3AF</color>
     <color name="grey_60">#95969D</color>
     <color name="transparent">#00FFFFFF</color>
 </resources>

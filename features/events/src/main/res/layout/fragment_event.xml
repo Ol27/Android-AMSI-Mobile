@@ -29,7 +29,7 @@
             android:insetRight="0dp"
             android:insetBottom="0dp"
             app:cornerRadius="12dp"
-            app:icon="@drawable/back_icon"
+            app:icon="@drawable/ic_back"
             app:iconGravity="textStart"
             app:iconPadding="0dp"
             app:iconTint="@null"
@@ -52,7 +52,7 @@
             android:insetRight="0dp"
             android:insetBottom="0dp"
             app:cornerRadius="12dp"
-            app:icon="@drawable/share_icon"
+            app:icon="@drawable/ic_share_button"
             app:iconGravity="textStart"
             app:iconPadding="0dp"
             app:iconTint="@null"
@@ -72,7 +72,7 @@
             android:insetRight="0dp"
             android:insetBottom="0dp"
             app:cornerRadius="12dp"
-            app:icon="@drawable/like_icon"
+            app:icon="@drawable/ic_like"
             app:iconGravity="textStart"
             app:iconPadding="0dp"
             app:iconTint="@null"
@@ -189,7 +189,7 @@
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="10:00 PM - End"
-                        android:textColor="@color/gray"
+                        android:textColor="@color/grey"
                         android:textSize="12sp"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -205,7 +205,7 @@
                     android:insetRight="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:icon="@drawable/calendar_icon"
+                    app:icon="@drawable/ic_calendar"
                     app:iconGravity="textStart"
                     app:iconPadding="0dp"
                     app:iconTint="@null"
@@ -227,7 +227,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/address_icon">
+                    android:src="@drawable/ic_address_button">
 
                 </ImageView>
 
@@ -257,7 +257,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans"
                     android:text="Street, 3, California, USA"
-                    android:textColor="@color/gray"
+                    android:textColor="@color/grey"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -277,7 +277,7 @@
                     android:insetRight="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="8dp"
-                    app:icon="@drawable/copy_icon"
+                    app:icon="@drawable/ic_copy"
                     app:iconGravity="textStart"
                     app:iconPadding="0dp"
                     app:iconTint="@null"
@@ -299,7 +299,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/phone_icon">
+                    android:src="@drawable/ic_phone">
 
                 </ImageView>
 
@@ -324,7 +324,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/noto_sans"
                 android:text="+1 100 12 467"
-                android:textColor="@color/gray"
+                android:textColor="@color/grey"
                 android:textSize="14sp">
 
             </com.google.android.material.textview.MaterialTextView>
@@ -349,7 +349,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/noto_sans"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                android:textColor="@color/gray"
+                android:textColor="@color/grey"
                 android:textSize="14sp"/>
 
             <Space

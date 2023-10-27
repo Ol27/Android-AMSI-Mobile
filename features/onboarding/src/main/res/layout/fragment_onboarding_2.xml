@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:gravity="center"
-        android:text="Get your dream job &amp; start . working\nin a new company"
+        android:text="Get your dream job &amp; start working\nin a new company"
         android:textSize="14sp"
         app:fontFamily="@font/noto_sans"
         app:layout_constraintBottom_toBottomOf="parent"
