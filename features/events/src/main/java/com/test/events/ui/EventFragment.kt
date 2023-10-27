@@ -5,7 +5,7 @@ import androidx.navigation.fragment.findNavController
 import com.test.common.base.BaseFragment
 import com.test.common.ext.StringExt.Companion.toDate
 import com.test.common.ext.ViewExt.Companion.copyToClipboard
-import com.test.events.R
+import com.test.common.R
 import com.test.events.databinding.FragmentEventBinding
 import com.test.events.model.Event
 
@@ -43,9 +43,9 @@ class EventFragment : BaseFragment<FragmentEventBinding>(FragmentEventBinding::i
 
     private fun likeEvent(event: Event) {
         if (event.liked) {
-            binding.btnEventLike.setIconResource(R.drawable.like_icon)
+            binding.btnEventLike.setIconResource(R.drawable.ic_like)
         } else {
-            binding.btnEventLike.setIconResource(R.drawable.like_filled_icon)
+            binding.btnEventLike.setIconResource(R.drawable.ic_like_filled)
         }
         event.liked = !event.liked
     }

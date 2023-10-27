@@ -1,4 +1,4 @@
-package com.test.auth.utils
+package com.test.common.util
 
 import android.text.method.PasswordTransformationMethod
 import android.view.View

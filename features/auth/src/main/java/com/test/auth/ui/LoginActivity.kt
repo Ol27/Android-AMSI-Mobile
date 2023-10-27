@@ -1,14 +1,15 @@
 package com.test.auth.ui
 
 import android.content.Intent
-import android.text.method.PasswordTransformationMethod
-import android.view.View
 import com.test.auth.databinding.ActivityLoginBinding
-import com.test.auth.utils.CustomPasswordTransformationMethod
+import com.test.common.util.CustomPasswordTransformationMethod
 import com.test.common.base.BaseActivity
+import com.test.common.ext.ViewExt.Companion.setCustomPasswordMask
 import com.test.navigation.NavExt.Companion.openMain
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
+
+    private var showPassword = false
 
     override fun initView() {
         initInsetter()
@@ -28,7 +29,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
             startActivity(Intent(this@LoginActivity, ForgotPassActivity::class.java))
             finish()
         }
-        inputLoginPassword.transformationMethod = CustomPasswordTransformationMethod()
+        inputLoginPassword.setCustomPasswordMask(showPassword)
+        layoutLoginPasswordInput.setEndIconOnClickListener {
+            showPassword = !showPassword
+            inputLoginPassword.setCustomPasswordMask(showPassword)
+        }
     }
 
     private fun initInsetter() = with(binding) {

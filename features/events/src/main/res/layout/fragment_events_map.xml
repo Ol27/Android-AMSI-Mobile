@@ -25,7 +25,7 @@
             android:id="@+id/btn_events_map_back"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/back_icon"
+            android:src="@drawable/ic_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -54,7 +54,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_events_map_back"
             app:layout_constraintTop_toTopOf="parent"
-            app:startIconDrawable="@drawable/search_field_icon"
+            app:startIconDrawable="@drawable/ic_search"
             app:startIconTint="@color/grey_60">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -76,7 +76,7 @@
         android:id="@+id/events_map_bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bottom_sheet_shape"
+        android:background="@drawable/shape_bottom_sheet"
         android:orientation="vertical"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
@@ -86,7 +86,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
-            android:src="@drawable/divider" />
+            android:src="@drawable/ic_divider_boottom_sheet" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_events_map_list"

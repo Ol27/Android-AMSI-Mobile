@@ -16,7 +16,8 @@
 
     <item
         android:id="@+id/placeholder"
-        android:title="" />
+        android:title=""
+        android:enabled="false"/>
 
     <!-- Settings -->
     <item

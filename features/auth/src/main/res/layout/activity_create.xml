@@ -100,7 +100,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
+        android:id="@+id/layout_create_password_input"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -123,6 +123,7 @@
         app:startIconTint="@color/orange">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_create_password"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:fontFamily="@font/noto_sans"
@@ -149,7 +150,7 @@
         app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/layout_create_password_input"
         app:strokeWidth="0dp" />
 
     <com.google.android.material.button.MaterialButton

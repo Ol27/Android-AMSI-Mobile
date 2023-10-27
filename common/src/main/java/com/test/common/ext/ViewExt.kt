@@ -14,6 +14,9 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.text.parseAsHtml
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
+import com.test.common.util.CustomPasswordTransformationMethod
 
 class ViewExt {
 
@@ -55,6 +58,11 @@ class ViewExt {
             if (Build.VERSION.SDK_INT < 33) {
                 Toast.makeText(context, "Address copied to clipboard", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        fun TextInputEditText.setCustomPasswordMask(showPassword: Boolean) {
+            transformationMethod = if (showPassword) null else CustomPasswordTransformationMethod()
+            text?.let { setSelection(it.length) }
         }
     }
 }
