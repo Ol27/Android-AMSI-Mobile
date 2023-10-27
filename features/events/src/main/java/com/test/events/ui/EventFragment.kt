@@ -10,21 +10,24 @@ import com.test.events.databinding.FragmentEventBinding
 import com.test.events.model.Event
 
 class EventFragment : BaseFragment<FragmentEventBinding>(FragmentEventBinding::inflate) {
-    private var event: Event? = null
+
+    private val event: Event by lazy {
+        requireArguments().getParcelable(ARG_EVENT)!!
+    }
+
     override fun initView() {
-        event = requireArguments().getParcelable(ARG_EVENT)
-        event?.let { setupData(it) }
+        setupData(event)
         binding.btnEventBack.setOnClickListener {
             findNavController().popBackStack()
         }
         binding.btnEventLike.setOnClickListener {
-            event?.let { likeEvent(it) }
+            likeEvent(event)
         }
         binding.btnEventCopyToClipboard.setOnClickListener {
             binding.tvEventAddress.copyToClipboard("Address")
         }
         binding.btnEventAddToCalendar.setOnClickListener {
-            event?.let { addEventToCalendar(it) }
+            addEventToCalendar(event)
         }
     }
 
@@ -41,11 +44,10 @@ class EventFragment : BaseFragment<FragmentEventBinding>(FragmentEventBinding::i
     private fun likeEvent(event: Event) {
         if (event.liked) {
             binding.btnEventLike.setIconResource(R.drawable.like_icon)
-            event.liked = false
         } else {
             binding.btnEventLike.setIconResource(R.drawable.like_filled_icon)
-            event.liked = true
         }
+        event.liked = !event.liked
     }
 
     private fun addEventToCalendar(event: Event) {

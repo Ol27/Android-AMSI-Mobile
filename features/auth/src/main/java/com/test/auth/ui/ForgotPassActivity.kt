@@ -14,8 +14,9 @@ class ForgotPassActivity :
 
     private fun updateUi() = with(binding) {
         imageView5.setOnClickListener { finish() }
-        materialButton.setOnClickListener {
+        btnForgotPassSendEmail.setOnClickListener {
             startActivity(Intent(this@ForgotPassActivity, CodeActivity::class.java))
+            finish()
         }
     }
 

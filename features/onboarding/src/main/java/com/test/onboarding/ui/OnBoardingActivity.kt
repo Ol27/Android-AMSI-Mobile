@@ -24,7 +24,8 @@ class OnBoardingActivity : AppCompatActivity(R.layout.activity_onboarding) {
             nextClick()
         }
         binding.materialTextView.setOnClickListener {
-            nextClick()
+            openAuth()
+            finish()
         }
     }
 

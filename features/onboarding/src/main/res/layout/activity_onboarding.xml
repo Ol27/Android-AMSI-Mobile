@@ -57,6 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="23dp"
         android:progress="53"
+        app:indicatorDirectionCircular="counterclockwise"
         app:indicatorColor="@color/orange"
         app:indicatorSize="88dp"
         app:layout_constraintBottom_toBottomOf="parent"

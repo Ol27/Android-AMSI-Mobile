@@ -7,7 +7,11 @@
     <fragment
         android:id="@+id/feedFragment"
         android:name="com.test.feed.ui.FeedFragment"
-        android:label="Feed" />
+        android:label="Feed" >
+        <action
+            android:id="@+id/action_feedFragment_to_eventsListFragment"
+            app:destination="@id/eventsListFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/eventsListFragment"

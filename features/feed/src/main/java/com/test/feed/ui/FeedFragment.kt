@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.test.common.base.BaseFragment
+import com.test.feed.R
 import com.test.feed.adapter.ContainerEventsAdapter
 import com.test.feed.adapter.HeaderAdapter
 import com.test.feed.adapter.JobsAdapter
@@ -18,9 +21,7 @@ import com.test.feed.databinding.FragmentFeedBinding
 import com.test.feed.model.ItemModel
 import dev.chrisbanes.insetter.applyInsetter
 
-class FeedFragment : Fragment() {
-
-    private val binding: FragmentFeedBinding by viewBinding(CreateMethod.INFLATE)
+class FeedFragment : BaseFragment<FragmentFeedBinding>(FragmentFeedBinding::inflate) {
 
     private var headerAdapter: HeaderAdapter? = null
 
@@ -32,14 +33,7 @@ class FeedFragment : Fragment() {
 
     private var mAdapter: ConcatAdapter? = null
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View = binding.root
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun initView() {
         initList()
         initInsetter()
     }
@@ -77,11 +71,9 @@ class FeedFragment : Fragment() {
             ItemModel.Job("", "", "", "", "", listOf()),
         )
 
-
-
         headerAdapter = HeaderAdapter()
 
-        titleEventsAdapter = TitleEventsAdapter()
+        titleEventsAdapter = TitleEventsAdapter { findNavController().navigate(com.test.navigation.R.id.action_feedFragment_to_eventsListFragment) }
         eventsContainerAdapter = ContainerEventsAdapter()
 
         titleJobAdapter = TitleJobAdapter()
@@ -107,8 +99,5 @@ class FeedFragment : Fragment() {
 
         titleJobAdapter?.submitList(mockTitleJobs)
         jobsAdapter?.submitList(mockJobs)
-
     }
-
-
 }

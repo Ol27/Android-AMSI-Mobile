@@ -13,7 +13,7 @@ class CreateActivity : BaseActivity<ActivityCreateBinding>(ActivityCreateBinding
 
     private fun initUi() = with(binding) {
         imageView5.setOnClickListener { finish() }
-        materialButton.setOnClickListener {
+        btnCreateSignup.setOnClickListener {
             openInfo()
             finish()
         }

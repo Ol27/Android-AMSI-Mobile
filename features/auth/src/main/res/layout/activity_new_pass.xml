@@ -79,6 +79,7 @@
         app:startIconTint="@color/orange">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_new_pass"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:fontFamily="@font/noto_sans"
@@ -112,6 +113,7 @@
         app:startIconTint="@color/orange">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_new_pass_confirm"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:fontFamily="@font/noto_sans"
@@ -123,7 +125,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton"
+        android:id="@+id/btn_new_pass_create"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="56dp"

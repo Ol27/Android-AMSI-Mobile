@@ -28,7 +28,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
     }
 
     private fun initOnClick() = with(binding) {
-        materialButton.setOnClickListener {
+        btnAuthEmail.setOnClickListener {
             startActivity(Intent(this@AuthActivity, LoginActivity::class.java))
         }
         materialTextView5.setOnClickListener {
