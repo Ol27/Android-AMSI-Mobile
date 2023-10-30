@@ -14,7 +14,7 @@ class ContainerEventsAdapter :
 
     companion object {
         private const val K_WIDTH = 0.7
-        private const val K_HEIGHT = 290 / 240
+        private const val K_HEIGHT = 1.2
     }
 
     override fun onCreateViewHolder(

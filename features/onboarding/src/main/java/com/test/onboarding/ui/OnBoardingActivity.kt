@@ -20,7 +20,7 @@ class OnBoardingActivity : AppCompatActivity(R.layout.activity_onboarding) {
         setContentView(binding.root)
         initInsetters()
         initViewPager2()
-        binding.imageView.setOnClickListener {
+        binding.btnOnboardingNext.setOnClickListener {
             nextClick()
         }
         binding.materialTextView.setOnClickListener {
@@ -36,13 +36,7 @@ class OnBoardingActivity : AppCompatActivity(R.layout.activity_onboarding) {
             }
         }
 
-        circularProgressIndicator.applyInsetter {
-            type(navigationBars = true) {
-                padding()
-            }
-        }
-
-        imageView.applyInsetter {
+        btnOnboardingNext.applyInsetter {
             type(navigationBars = true) {
                 margin()
             }
@@ -63,16 +57,17 @@ class OnBoardingActivity : AppCompatActivity(R.layout.activity_onboarding) {
 
         registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
-                val maxPosition = adapter?.itemCount ?: 0
-                calcProgressAndUpdate(position, maxPosition)
+                when (position) {
+                    0 -> binding.btnOnboardingNext.setImageResource(com.test.common.R.drawable.ic_onboarding_1)
+                    1 -> binding.btnOnboardingNext.setImageResource(com.test.common.R.drawable.ic_onboarding_2)
+                    2 -> binding.btnOnboardingNext.setImageResource(com.test.common.R.drawable.ic_onboarding_3)
+                    else -> {
+                        binding.btnOnboardingNext.setImageResource(com.test.common.R.drawable.ic_onboarding_1)
+                    }
+                }
             }
         })
 
-    }
-
-    private fun calcProgressAndUpdate(position: Int, maxPosition: Int) {
-        val progress = (position + 1) * 100 / maxPosition
-        binding.circularProgressIndicator.setProgressCompat(progress, true)
     }
 
     private fun nextClick() {
