@@ -12,6 +12,7 @@ import dev.chrisbanes.insetter.applyInsetter
 class OnBoardingActivity : AppCompatActivity(R.layout.activity_onboarding) {
 
     private val binding by lazy { ActivityOnboardingBinding.inflate(layoutInflater) }
+    private val onboardingImages = listOf(com.test.common.R.drawable.ic_onboarding_1, com.test.common.R.drawable.ic_onboarding_2, com.test.common.R.drawable.ic_onboarding_3)
 
     private var mAdapter: OnBoardingAdapter? = null
 
@@ -20,7 +21,7 @@ class OnBoardingActivity : AppCompatActivity(R.layout.activity_onboarding) {
         setContentView(binding.root)
         initInsetters()
         initViewPager2()
-        binding.imageView.setOnClickListener {
+        binding.btnOnboardingNext.setOnClickListener {
             nextClick()
         }
         binding.materialTextView.setOnClickListener {
@@ -36,13 +37,7 @@ class OnBoardingActivity : AppCompatActivity(R.layout.activity_onboarding) {
             }
         }
 
-        circularProgressIndicator.applyInsetter {
-            type(navigationBars = true) {
-                padding()
-            }
-        }
-
-        imageView.applyInsetter {
+        btnOnboardingNext.applyInsetter {
             type(navigationBars = true) {
                 margin()
             }
@@ -63,16 +58,9 @@ class OnBoardingActivity : AppCompatActivity(R.layout.activity_onboarding) {
 
         registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
-                val maxPosition = adapter?.itemCount ?: 0
-                calcProgressAndUpdate(position, maxPosition)
+                binding.btnOnboardingNext.setImageResource(onboardingImages[position])
             }
         })
-
-    }
-
-    private fun calcProgressAndUpdate(position: Int, maxPosition: Int) {
-        val progress = (position + 1) * 100 / maxPosition
-        binding.circularProgressIndicator.setProgressCompat(progress, true)
     }
 
     private fun nextClick() {
@@ -85,5 +73,4 @@ class OnBoardingActivity : AppCompatActivity(R.layout.activity_onboarding) {
             finish()
         }
     }
-
 }

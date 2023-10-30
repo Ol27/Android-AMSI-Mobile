@@ -52,6 +52,7 @@
         app:startIconTint="@null">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_info_number"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:fontFamily="@font/noto_sans"

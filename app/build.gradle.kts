@@ -50,6 +50,7 @@ dependencies {
     implementation(project(":features:main"))
     implementation(project(":features:events"))
     implementation(project(":features:feed"))
+    implementation(project(":features:jobs"))
     implementation(project(":navigation"))
     implementation(project(":picker"))
 }
