@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Feed -->
     <item
         android:id="@+id/feedFragment"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/selector_home"
         android:title="Feed">
     </item>
 
-    <!-- Events -->
     <item
         android:id="@+id/eventsListFragment"
-        android:icon="@drawable/ic_calendar_date"
+        android:icon="@drawable/selector_calendar"
         android:title="Events" />
 
     <item
@@ -19,16 +17,14 @@
         android:title=""
         android:enabled="false"/>
 
-    <!-- Settings -->
     <item
         android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_work"
-        android:title="Home" />
+        android:title="Jobs" />
 
-    <!-- Logout -->
     <item
         android:id="@+id/logoutFragment"
         android:icon="@drawable/ic_account"
-        android:title="Home" />
+        android:title="Profile" />
 
 </menu>
