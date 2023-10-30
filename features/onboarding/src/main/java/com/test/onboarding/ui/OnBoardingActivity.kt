@@ -12,6 +12,7 @@ import dev.chrisbanes.insetter.applyInsetter
 class OnBoardingActivity : AppCompatActivity(R.layout.activity_onboarding) {
 
     private val binding by lazy { ActivityOnboardingBinding.inflate(layoutInflater) }
+    private val onboardingImages = listOf(com.test.common.R.drawable.ic_onboarding_1, com.test.common.R.drawable.ic_onboarding_2, com.test.common.R.drawable.ic_onboarding_3)
 
     private var mAdapter: OnBoardingAdapter? = null
 
@@ -57,17 +58,9 @@ class OnBoardingActivity : AppCompatActivity(R.layout.activity_onboarding) {
 
         registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
-                when (position) {
-                    0 -> binding.btnOnboardingNext.setImageResource(com.test.common.R.drawable.ic_onboarding_1)
-                    1 -> binding.btnOnboardingNext.setImageResource(com.test.common.R.drawable.ic_onboarding_2)
-                    2 -> binding.btnOnboardingNext.setImageResource(com.test.common.R.drawable.ic_onboarding_3)
-                    else -> {
-                        binding.btnOnboardingNext.setImageResource(com.test.common.R.drawable.ic_onboarding_1)
-                    }
-                }
+                binding.btnOnboardingNext.setImageResource(onboardingImages[position])
             }
         })
-
     }
 
     private fun nextClick() {
@@ -80,5 +73,4 @@ class OnBoardingActivity : AppCompatActivity(R.layout.activity_onboarding) {
             finish()
         }
     }
-
 }
