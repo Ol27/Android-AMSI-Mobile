@@ -32,7 +32,8 @@ class InfoActivity : BaseActivity<ActivityInfoBinding>(ActivityInfoBinding::infl
         mAdapter = InfoAdapter(this@InfoActivity).apply {
             setFragments(
                 listOf(
-                    FragmentInfoPhoto.newInstance(),
+                    FragmentInfoPhoto.newInstance {
+                        binding.viewPager2.currentItem = binding.viewPager2.currentItem + 1 },
                     FragmentInfoContact.newInstance(),
                     FragmentInfoLocation.newInstance()
                 )
