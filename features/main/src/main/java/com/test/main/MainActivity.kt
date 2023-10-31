@@ -14,6 +14,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     override fun initView() {
         binding.bottomNavigationView.setupWithNavController(navController)
+        binding.bottomNavigationView.itemIconTintList = null
         addDestinationChangeListener()
     }
 

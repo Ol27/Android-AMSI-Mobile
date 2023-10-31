@@ -8,7 +8,7 @@ import coil.transform.CircleCropTransformation
 import com.test.common.base.BaseFragment
 import com.test.info.databinding.FragmentInfoPhotoBinding
 
-class FragmentInfoPhoto :
+class FragmentInfoPhoto(private val onSkipClicked: () -> Unit) :
     BaseFragment<FragmentInfoPhotoBinding>(FragmentInfoPhotoBinding::inflate) {
 
     private var activityResultRegistry =
@@ -19,6 +19,9 @@ class FragmentInfoPhoto :
     override fun initView() = with(binding) {
         materialButton.setOnClickListener {
             openPicker()
+        }
+        materialTextView.setOnClickListener {
+            onSkipClicked()
         }
     }
 
@@ -36,7 +39,7 @@ class FragmentInfoPhoto :
     }
 
     companion object {
-        fun newInstance() = FragmentInfoPhoto()
+        fun newInstance(onSkipClicked: () -> Unit) = FragmentInfoPhoto(onSkipClicked)
     }
 
 }
