@@ -17,19 +17,19 @@ class JobApplyingFragment(private val onApply: () -> Unit) : BottomSheetDialogFr
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentJobApplyingBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setupDialog()
-
         binding.btnJobApplyDialogNo.setOnClickListener {
             dismiss()
         }
-
         binding.btnJobApplyDialogYes.setOnClickListener {
             onApply()
             dismiss()
         }
-
-        return binding.root
     }
 
     private fun setupDialog() {
