@@ -17,7 +17,7 @@ import com.test.events.adapter.EventsAdapter
 import com.test.events.databinding.FragmentEventsMapBinding
 import com.test.events.model.Event
 import com.test.events.util.MapUtil
-import com.test.events.util.MockDataUtil
+import com.test.events.util.MockEventsDataUtil
 
 class EventsMapFragment :
     BaseFragment<FragmentEventsMapBinding>(FragmentEventsMapBinding::inflate),
@@ -43,7 +43,7 @@ class EventsMapFragment :
 
     private fun addMarkers(googleMap: GoogleMap) {
         for (i in 0..4) {
-            val event = MockDataUtil.getMockData()[i]
+            val event = MockEventsDataUtil.getMockData()[i]
             val marker = googleMap.addMarker(
                 MarkerOptions()
                     .position(getLatLngFromMockData(i))
@@ -55,8 +55,8 @@ class EventsMapFragment :
 
     private fun getLatLngFromMockData(itemCount: Int): LatLng {
         return LatLng(
-            MockDataUtil.getMockData()[itemCount].lat,
-            MockDataUtil.getMockData()[itemCount].lng
+            MockEventsDataUtil.getMockData()[itemCount].lat,
+            MockEventsDataUtil.getMockData()[itemCount].lng
         )
     }
 
@@ -74,8 +74,8 @@ class EventsMapFragment :
         }
         eventsAdapter.submitList(
             mutableListOf(
-                MockDataUtil.getMockData()[0],
-                MockDataUtil.getMockData()[1]
+                MockEventsDataUtil.getMockData()[0],
+                MockEventsDataUtil.getMockData()[1]
             )
         )
     }

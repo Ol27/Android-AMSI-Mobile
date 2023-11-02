@@ -1,10 +1,11 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id ("kotlin-parcelize")
 }
 
 android {
-    namespace = "com.yanovych.jobs"
+    namespace = "com.test.jobs"
     compileSdk = 33
 
     defaultConfig {

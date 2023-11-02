@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_feedFragment_to_eventsListFragment"
             app:destination="@id/eventsListFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_jobsListFragment"
+            app:destination="@id/jobsListFragment" />
     </fragment>
 
     <fragment
@@ -42,5 +45,33 @@
         <action
             android:id="@+id/action_eventsMapFragment_to_eventFragment"
             app:destination="@id/eventFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/jobsListFragment"
+        android:name="com.test.jobs.ui.JobsListFragment"
+        android:label="Jobs" >
+        <action
+            android:id="@+id/action_jobsListFragment_to_jobFragment"
+            app:destination="@id/jobFragment" />
+        <action
+            android:id="@+id/action_jobsListFragment_to_jobsFilterFragment"
+            app:destination="@id/jobsFilterFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/jobFragment"
+        android:name="com.test.jobs.ui.JobFragment"
+        android:label="Job" >
+        <argument
+            android:name="jobId"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/jobsFilterFragment"
+        android:name="com.test.jobs.ui.JobsFilterFragment"
+        android:label="Jobs Filter" >
     </fragment>
 </navigation>
