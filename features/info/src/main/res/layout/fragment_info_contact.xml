@@ -89,13 +89,11 @@
             android:layout_height="56dp"
             android:fontFamily="@font/noto_sans"
             android:includeFontPadding="false"
-            android:inputType="phone"
+            android:inputType="textEmailAddress"
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
             android:text=""
             android:textColor="@color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,11 +12,6 @@ import com.test.feed.model.ItemModel
 class ContainerEventsAdapter :
     ListAdapter<List<ItemModel.Events>, ContainerEventsAdapter.Holder>(DiffFactory.DiffCallback()) {
 
-    companion object {
-        private const val K_WIDTH = 0.7
-        private const val K_HEIGHT = 1.2
-    }
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
@@ -26,12 +21,7 @@ class ContainerEventsAdapter :
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            ).apply {
-                root.layoutParams = ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    (parent.measuredWidth * K_WIDTH * K_HEIGHT + 16).toInt()
-                )
-            }
+            )
         )
     }
 
@@ -45,19 +35,9 @@ class ContainerEventsAdapter :
 
         fun bind(item: List<ItemModel.Events>) = with(binding) {
             rvFeed.apply {
-                layoutManager =
-                    object : LinearLayoutManager(context, HORIZONTAL, false) {
-                        override fun checkLayoutParams(lp: RecyclerView.LayoutParams?): Boolean {
-                            lp?.width = (measuredWidth * K_WIDTH).toInt()
-                            lp?.height = (measuredWidth * K_WIDTH * K_HEIGHT).toInt()
-                            return true
-                        }
-                    }
+                layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 adapter = EventsAdapter().apply { submitList(item) }
             }
-
         }
-
     }
-
 }

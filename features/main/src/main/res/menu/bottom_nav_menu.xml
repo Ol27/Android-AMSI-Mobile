@@ -18,8 +18,8 @@
         android:enabled="false"/>
 
     <item
-        android:id="@+id/settingsFragment"
-        android:icon="@drawable/ic_work"
+        android:id="@+id/jobsListFragment"
+        android:icon="@drawable/selector_work"
         android:title="Jobs" />
 
     <item

@@ -62,7 +62,6 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:fontFamily="@font/noto_sans"
             android:hint="Your full name"
             android:inputType="textPersonName"
             android:textColor="#181818" />
@@ -92,7 +91,6 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:fontFamily="@font/noto_sans"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:textColor="#181818" />
@@ -126,7 +124,6 @@
             android:id="@+id/input_create_password"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:fontFamily="@font/noto_sans"
             android:hint="Password"
             android:inputType="textPassword"
             android:textColor="#181818" />

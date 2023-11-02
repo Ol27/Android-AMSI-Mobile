@@ -7,7 +7,7 @@ import com.test.common.base.BaseFragment
 import com.test.events.adapter.EventsAdapter
 import com.test.events.databinding.FragmentEventsListBinding
 import com.test.events.model.Event
-import com.test.events.util.MockDataUtil
+import com.test.events.util.MockEventsDataUtil
 
 class EventsListFragment :
     BaseFragment<FragmentEventsListBinding>(FragmentEventsListBinding::inflate) {
@@ -17,7 +17,7 @@ class EventsListFragment :
             adapter = eventsAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
-        eventsAdapter.submitList(MockDataUtil.getMockData())
+        eventsAdapter.submitList(MockEventsDataUtil.getMockData())
 
         binding.btnEventsListMap.setOnClickListener {
             navigateToEventsMapScreen()

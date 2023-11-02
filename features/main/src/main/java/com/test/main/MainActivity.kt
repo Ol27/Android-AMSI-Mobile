@@ -22,7 +22,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 com.test.navigation.R.id.eventFragment,
-                com.test.navigation.R.id.eventsMapFragment -> binding.navBarView.visibility = View.GONE
+                com.test.navigation.R.id.eventsMapFragment,
+                com.test.navigation.R.id.jobsFilterFragment,
+                com.test.navigation.R.id.jobFragment -> binding.navBarView.visibility = View.GONE
                 else -> binding.navBarView.visibility = View.VISIBLE
             }
         }

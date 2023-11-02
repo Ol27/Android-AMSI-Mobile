@@ -27,7 +27,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         }
         materialTextView6.setOnClickListener {
             startActivity(Intent(this@LoginActivity, ForgotPassActivity::class.java))
-            finish()
         }
         inputLoginPassword.setCustomPasswordMask(showPassword)
         layoutLoginPasswordInput.setEndIconOnClickListener {

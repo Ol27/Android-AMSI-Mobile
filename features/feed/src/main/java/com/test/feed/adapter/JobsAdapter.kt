@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.test.common.factory.DiffFactory
-import com.test.feed.databinding.ItemJobBinding
+import com.test.common.databinding.ItemJobBinding
 import com.test.feed.model.ItemModel
 
 

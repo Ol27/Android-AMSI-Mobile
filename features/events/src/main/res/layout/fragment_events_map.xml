@@ -63,6 +63,7 @@
                 android:focusable="false"
                 android:fontFamily="@font/noto_sans"
                 android:hint="Search events"
+                android:includeFontPadding="false"
                 android:inputType="textPersonName"
                 android:padding="0dp"
                 android:textColor="@color/grey_60"
