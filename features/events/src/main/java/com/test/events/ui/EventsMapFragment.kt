@@ -1,5 +1,6 @@
 package com.test.events.ui
 
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,16 +13,19 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.test.common.base.BaseFragment
+import com.test.domain.model.Event
 import com.test.events.R
 import com.test.events.adapter.EventsAdapter
 import com.test.events.databinding.FragmentEventsMapBinding
-import com.test.events.model.Event
 import com.test.events.util.MapUtil
-import com.test.events.util.MockEventsDataUtil
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EventsMapFragment :
     BaseFragment<FragmentEventsMapBinding>(FragmentEventsMapBinding::inflate),
     OnMarkerClickListener {
+
+    private val viewModel: EventsViewModel by viewModel()
+
     override fun initView() {
         setupBottomSheet()
         setupAdapter()
@@ -35,7 +39,12 @@ class EventsMapFragment :
         mapFragment?.getMapAsync { googleMap ->
             googleMap.setOnMarkerClickListener(this)
             googleMap.uiSettings.isCompassEnabled = false
-            val cameraUpdate = CameraUpdateFactory.newLatLngZoom(getLatLngFromMockData(0), 15.0f)
+            viewModel.getEvent(1)
+            var eventToCenterCamera: Event? = null
+            viewModel.event.observe(viewLifecycleOwner) {
+                eventToCenterCamera = it
+            }
+            val cameraUpdate = CameraUpdateFactory.newLatLngZoom(getLatLngFromData(eventToCenterCamera!!), 15.0f)
             googleMap.moveCamera(cameraUpdate)
             addMarkers(googleMap)
         }
@@ -43,20 +52,23 @@ class EventsMapFragment :
 
     private fun addMarkers(googleMap: GoogleMap) {
         for (i in 0..4) {
-            val event = MockEventsDataUtil.getMockData()[i]
-            val marker = googleMap.addMarker(
-                MarkerOptions()
-                    .position(getLatLngFromMockData(i))
-                    .icon(MapUtil.createCustomMarkerIcon(requireContext()))
-            )
-            marker.tag = event
+            viewModel.getEvent(i.toLong() + 1)
+            viewModel.event.observe(viewLifecycleOwner) {
+                val event = it
+                val marker = googleMap.addMarker(
+                    MarkerOptions()
+                        .position(getLatLngFromData(event))
+                        .icon(MapUtil.createCustomMarkerIcon(requireContext()))
+                )
+                marker.tag = event
+            }
         }
     }
 
-    private fun getLatLngFromMockData(itemCount: Int): LatLng {
+    private fun getLatLngFromData(event: Event): LatLng {
         return LatLng(
-            MockEventsDataUtil.getMockData()[itemCount].lat,
-            MockEventsDataUtil.getMockData()[itemCount].lng
+            event.lat,
+            event.lng
         )
     }
 
@@ -67,17 +79,20 @@ class EventsMapFragment :
     }
 
     private fun setupAdapter() {
+        viewModel.getAllEvents()
         val eventsAdapter = EventsAdapter { event -> navigateToEventScreen(event) }
         binding.rvEventsMapList.apply {
             adapter = eventsAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
-        eventsAdapter.submitList(
-            mutableListOf(
-                MockEventsDataUtil.getMockData()[0],
-                MockEventsDataUtil.getMockData()[1]
+        viewModel.eventsList.observe(viewLifecycleOwner) {
+            eventsAdapter.submitList(
+                mutableListOf(
+                    it[0],
+                    it[1]
+                )
             )
-        )
+        }
     }
 
     override fun onMarkerClick(marker: Marker?): Boolean {
@@ -91,7 +106,7 @@ class EventsMapFragment :
     private fun navigateToEventScreen(event: Event) {
         findNavController().navigate(
             com.test.navigation.R.id.action_eventsMapFragment_to_eventFragment,
-            bundleOf(EventFragment.ARG_EVENT to event)
+            bundleOf(EventFragment.ARG_EVENT_ID to event.id)
         )
     }
 }

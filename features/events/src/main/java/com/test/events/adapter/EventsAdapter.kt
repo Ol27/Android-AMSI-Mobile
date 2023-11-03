@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.test.common.factory.DiffFactory
+import com.test.domain.model.Event
 import com.test.events.databinding.EventItemBinding
-import com.test.events.model.Event
 
 class EventsAdapter(
     private val onEventClicked: (Event) -> Unit

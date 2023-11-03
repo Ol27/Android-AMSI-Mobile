@@ -57,4 +57,7 @@ dependencies {
     api("androidx.recyclerview:recyclerview:1.3.1")
 
     api("com.google.android.gms:play-services-maps:17.0.0")
+
+    api("io.insert-koin:koin-core:3.5.0")
+    api("io.insert-koin:koin-android:3.5.0")
 }

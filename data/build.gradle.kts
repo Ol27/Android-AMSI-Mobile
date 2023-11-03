@@ -1,11 +1,10 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id ("kotlin-parcelize")
 }
 
 android {
-    namespace = "com.test.jobs"
+    namespace = "com.test.data"
     compileSdk = 33
 
     defaultConfig {
@@ -30,9 +29,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
-    }
-    buildFeatures {
-        viewBinding = true
     }
 }
 
