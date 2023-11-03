@@ -9,6 +9,7 @@
         android:anyDensity="true" />
 
     <application
+        android:name="com.test.app.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"

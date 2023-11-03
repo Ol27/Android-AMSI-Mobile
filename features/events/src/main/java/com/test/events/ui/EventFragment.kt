@@ -6,17 +6,25 @@ import com.test.common.base.BaseFragment
 import com.test.common.ext.StringExt.Companion.toDate
 import com.test.common.ext.ViewExt.Companion.copyToClipboard
 import com.test.common.R
+import com.test.domain.model.Event
 import com.test.events.databinding.FragmentEventBinding
-import com.test.events.model.Event
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EventFragment : BaseFragment<FragmentEventBinding>(FragmentEventBinding::inflate) {
 
-    private val event: Event by lazy {
-        requireArguments().getParcelable(ARG_EVENT)!!
+    private val viewModel: EventsViewModel by viewModel()
+
+    private val eventId: Long by lazy {
+        requireArguments().getLong(ARG_EVENT_ID)
     }
+    private lateinit var event: Event
 
     override fun initView() {
-        setupData(event)
+        viewModel.event.observe(viewLifecycleOwner) {
+            event = it
+            setupData(event)
+        }
+        viewModel.getEvent(eventId)
         binding.btnEventBack.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -68,6 +76,6 @@ class EventFragment : BaseFragment<FragmentEventBinding>(FragmentEventBinding::i
     }
 
     companion object {
-        const val ARG_EVENT = "event"
+        const val ARG_EVENT_ID = "event"
     }
 }
