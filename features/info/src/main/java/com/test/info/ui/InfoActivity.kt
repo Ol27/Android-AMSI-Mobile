@@ -1,10 +1,7 @@
 package com.test.info.ui
 
-import android.content.Intent
-import androidx.navigation.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.test.common.base.BaseActivity
-import com.test.info.R
 import com.test.info.adapter.InfoAdapter
 import com.test.info.databinding.ActivityInfoBinding
 import com.test.navigation.NavExt.Companion.openMain
@@ -33,7 +30,8 @@ class InfoActivity : BaseActivity<ActivityInfoBinding>(ActivityInfoBinding::infl
             setFragments(
                 listOf(
                     FragmentInfoPhoto.newInstance {
-                        binding.viewPager2.currentItem = binding.viewPager2.currentItem + 1 },
+                        binding.viewPager2.currentItem = binding.viewPager2.currentItem + 1
+                    },
                     FragmentInfoContact.newInstance(),
                     FragmentInfoLocation.newInstance()
                 )

@@ -4,17 +4,26 @@ import JobApplyingFragment
 import androidx.navigation.fragment.findNavController
 import com.test.common.R
 import com.test.common.base.BaseFragment
+import com.test.domain.model.Job
 import com.test.jobs.databinding.FragmentJobBinding
-import com.test.jobs.model.Job
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class JobFragment : BaseFragment<FragmentJobBinding>(FragmentJobBinding::inflate) {
 
-    private val job: Job by lazy {
-        requireArguments().getParcelable(ARG_JOB)!!
-    }
+    private val viewModel: JobsViewModel by viewModel()
+    private lateinit var job: Job
 
     override fun initView() {
-        initData()
+        val jobId = requireArguments().getLong(ARG_JOB_ID)
+        viewModel.getJob(jobId)
+        viewModel.job.observe(viewLifecycleOwner) {
+            job = it
+            initData()
+            initListeners()
+        }
+    }
+
+    private fun initListeners() {
         binding.btnJobDetailsBack.setOnClickListener { findNavController().popBackStack() }
         binding.btnJobDetailsLike.setOnClickListener { likeJob() }
         binding.btnJobDetailsApply.setOnClickListener { showApproveDialog() }
@@ -56,6 +65,6 @@ class JobFragment : BaseFragment<FragmentJobBinding>(FragmentJobBinding::inflate
     }
 
     companion object {
-        const val ARG_JOB = "job"
+        const val ARG_JOB_ID = "ARG_JOB_ID"
     }
 }

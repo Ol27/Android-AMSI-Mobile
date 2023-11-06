@@ -106,8 +106,8 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="22dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="22dp">
 
             <com.google.android.material.imageview.ShapeableImageView
                 style="@style/Circle"

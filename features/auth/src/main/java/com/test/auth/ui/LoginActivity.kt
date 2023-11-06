@@ -2,7 +2,6 @@ package com.test.auth.ui
 
 import android.content.Intent
 import com.test.auth.databinding.ActivityLoginBinding
-import com.test.common.util.CustomPasswordTransformationMethod
 import com.test.common.base.BaseActivity
 import com.test.common.ext.ViewExt.Companion.setCustomPasswordMask
 import com.test.navigation.NavExt.Companion.openMain

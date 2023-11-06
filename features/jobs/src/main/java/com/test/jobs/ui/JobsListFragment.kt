@@ -4,12 +4,15 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.test.common.base.BaseFragment
+import com.test.domain.model.Job
 import com.test.jobs.adapter.JobsAdapter
 import com.test.jobs.databinding.FragmentJobsListBinding
-import com.test.jobs.model.Job
-import com.test.jobs.util.MockJobsDataUtil
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListBinding::inflate) {
+
+    private val viewModel: JobsViewModel by viewModel()
+
     override fun initView() {
         initJobsList()
         binding.btnJobsFilter.setOnClickListener { navigateToJobsFilter() }
@@ -21,13 +24,16 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
             adapter = jobsAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
-        jobsAdapter.submitList(MockJobsDataUtil.getMockData())
+        viewModel.getAllJobs()
+        viewModel.jobsList.observe(viewLifecycleOwner) {
+            jobsAdapter.submitList(it)
+        }
     }
 
     private fun navigateToJobScreen(job: Job) {
         findNavController().navigate(
             com.test.navigation.R.id.action_jobsListFragment_to_jobFragment,
-            bundleOf(JobFragment.ARG_JOB to job)
+            bundleOf(JobFragment.ARG_JOB_ID to job.id)
         )
     }
 

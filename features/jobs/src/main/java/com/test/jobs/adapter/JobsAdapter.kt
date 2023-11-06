@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.test.common.factory.DiffFactory
-import com.test.jobs.model.Job
 import com.test.common.databinding.ItemJobBinding
+import com.test.common.factory.DiffFactory
+import com.test.domain.model.Job
 
-class JobsAdapter(private val onJobClicked: (Job) -> Unit
+class JobsAdapter(
+    private val onJobClicked: (Job) -> Unit
 ) : ListAdapter<Job, JobsAdapter.JobsViewHolder>(DiffFactory.DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobsViewHolder =
@@ -27,7 +28,8 @@ class JobsAdapter(private val onJobClicked: (Job) -> Unit
         }
     }
 
-    inner class JobsViewHolder(val binding: ItemJobBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class JobsViewHolder(val binding: ItemJobBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(job: Job) = with(binding) {
             tvJobTitle.text = job.title
             tvJobCompany.text = job.company

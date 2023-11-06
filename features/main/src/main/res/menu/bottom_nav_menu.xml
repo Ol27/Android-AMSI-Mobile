@@ -4,8 +4,7 @@
     <item
         android:id="@+id/feedFragment"
         android:icon="@drawable/selector_home"
-        android:title="Feed">
-    </item>
+        android:title="Feed"></item>
 
     <item
         android:id="@+id/eventsListFragment"
@@ -14,8 +13,8 @@
 
     <item
         android:id="@+id/placeholder"
-        android:title=""
-        android:enabled="false"/>
+        android:enabled="false"
+        android:title="" />
 
     <item
         android:id="@+id/jobsListFragment"

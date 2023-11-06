@@ -4,5 +4,6 @@ import com.test.domain.model.Event
 
 interface EventRepository {
     suspend fun get(id: Long): Event?
+    suspend fun getLast(): List<Event>
     suspend fun getAll(): List<Event>
 }
