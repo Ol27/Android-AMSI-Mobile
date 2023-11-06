@@ -12,7 +12,11 @@ import dev.chrisbanes.insetter.applyInsetter
 class OnBoardingActivity : AppCompatActivity(R.layout.activity_onboarding) {
 
     private val binding by lazy { ActivityOnboardingBinding.inflate(layoutInflater) }
-    private val onboardingImages = listOf(com.test.common.R.drawable.ic_onboarding_1, com.test.common.R.drawable.ic_onboarding_2, com.test.common.R.drawable.ic_onboarding_3)
+    private val onboardingImages = listOf(
+        com.test.common.R.drawable.ic_onboarding_1,
+        com.test.common.R.drawable.ic_onboarding_2,
+        com.test.common.R.drawable.ic_onboarding_3
+    )
 
     private var mAdapter: OnBoardingAdapter? = null
 

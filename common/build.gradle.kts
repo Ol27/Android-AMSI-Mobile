@@ -50,7 +50,6 @@ dependencies {
     api("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
     api("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
 
-
     api("androidx.activity:activity-ktx:1.3.0")
     api("androidx.fragment:fragment-ktx:1.5.1")
 

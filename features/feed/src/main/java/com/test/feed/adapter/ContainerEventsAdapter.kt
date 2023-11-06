@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.test.common.factory.DiffFactory
+import com.test.domain.model.Event
 import com.test.feed.databinding.ItemRecyclerBinding
-import com.test.feed.model.ItemModel
 
-class ContainerEventsAdapter :
-    ListAdapter<List<ItemModel.Events>, ContainerEventsAdapter.Holder>(DiffFactory.DiffCallback()) {
+class ContainerEventsAdapter(private val openEvent: (event: Event) -> Unit) :
+    ListAdapter<List<Event>, ContainerEventsAdapter.Holder>(DiffFactory.DiffCallback()) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -33,10 +33,12 @@ class ContainerEventsAdapter :
         private val binding: ItemRecyclerBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: List<ItemModel.Events>) = with(binding) {
+        fun bind(item: List<Event>) = with(binding) {
             rvFeed.apply {
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-                adapter = EventsAdapter().apply { submitList(item) }
+                adapter = EventsAdapter {
+                    openEvent(it)
+                }.apply { submitList(item) }
             }
         }
     }

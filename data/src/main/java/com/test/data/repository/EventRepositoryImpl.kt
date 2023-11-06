@@ -9,6 +9,10 @@ class EventRepositoryImpl(private val eventMockService: EventMockService) : Even
         return eventMockService.getEventById(id)
     }
 
+    override suspend fun getLast(): List<Event> {
+        return eventMockService.getLastEvents()
+    }
+
     override suspend fun getAll(): List<Event> {
         return eventMockService.getAllEvents()
     }

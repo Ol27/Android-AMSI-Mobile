@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:clipToPadding="false"
-    android:paddingHorizontal="16dp"
     android:paddingTop="16dp"
     android:paddingBottom="96dp"
     tools:itemCount="4"

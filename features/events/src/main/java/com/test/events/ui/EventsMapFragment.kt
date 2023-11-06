@@ -1,6 +1,5 @@
 package com.test.events.ui
 
-import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,6 +28,7 @@ class EventsMapFragment :
     override fun initView() {
         setupBottomSheet()
         setupAdapter()
+
         binding.btnEventsMapBack.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -37,17 +37,22 @@ class EventsMapFragment :
             childFragmentManager.findFragmentById(R.id.map_events_map_fragment) as? SupportMapFragment
 
         mapFragment?.getMapAsync { googleMap ->
-            googleMap.setOnMarkerClickListener(this)
-            googleMap.uiSettings.isCompassEnabled = false
-            viewModel.getEvent(1)
-            var eventToCenterCamera: Event? = null
-            viewModel.event.observe(viewLifecycleOwner) {
-                eventToCenterCamera = it
-            }
-            val cameraUpdate = CameraUpdateFactory.newLatLngZoom(getLatLngFromData(eventToCenterCamera!!), 15.0f)
-            googleMap.moveCamera(cameraUpdate)
+            setupMap(googleMap)
             addMarkers(googleMap)
         }
+    }
+
+    private fun setupMap(googleMap: GoogleMap) {
+        googleMap.setOnMarkerClickListener(this)
+        googleMap.uiSettings.isCompassEnabled = false
+        viewModel.getEvent(1)
+        var eventToCenterCamera: Event? = null
+        viewModel.event.observe(viewLifecycleOwner) {
+            eventToCenterCamera = it
+        }
+        val cameraUpdate =
+            CameraUpdateFactory.newLatLngZoom(getLatLngFromData(eventToCenterCamera!!), 15.0f)
+        googleMap.moveCamera(cameraUpdate)
     }
 
     private fun addMarkers(googleMap: GoogleMap) {

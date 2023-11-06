@@ -2,10 +2,10 @@ package com.test.events.ui
 
 import android.content.Intent
 import androidx.navigation.fragment.findNavController
+import com.test.common.R
 import com.test.common.base.BaseFragment
 import com.test.common.ext.StringExt.Companion.toDate
 import com.test.common.ext.ViewExt.Companion.copyToClipboard
-import com.test.common.R
 import com.test.domain.model.Event
 import com.test.events.databinding.FragmentEventBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -13,18 +13,19 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class EventFragment : BaseFragment<FragmentEventBinding>(FragmentEventBinding::inflate) {
 
     private val viewModel: EventsViewModel by viewModel()
-
-    private val eventId: Long by lazy {
-        requireArguments().getLong(ARG_EVENT_ID)
-    }
     private lateinit var event: Event
 
     override fun initView() {
+        val eventId = requireArguments().getLong(ARG_EVENT_ID)
+        viewModel.getEvent(eventId)
         viewModel.event.observe(viewLifecycleOwner) {
             event = it
             setupData(event)
+            initListeners()
         }
-        viewModel.getEvent(eventId)
+    }
+
+    private fun initListeners() {
         binding.btnEventBack.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -76,6 +77,6 @@ class EventFragment : BaseFragment<FragmentEventBinding>(FragmentEventBinding::i
     }
 
     companion object {
-        const val ARG_EVENT_ID = "event"
+        const val ARG_EVENT_ID = "ARG_EVENT_ID"
     }
 }
