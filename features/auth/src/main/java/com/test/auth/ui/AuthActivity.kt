@@ -30,11 +30,9 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
     private fun initOnClick() = with(binding) {
         btnAuthEmail.setOnClickListener {
             startActivity(Intent(this@AuthActivity, LoginActivity::class.java))
-            finish()
         }
         materialTextView5.setOnClickListener {
             startActivity(Intent(this@AuthActivity, CreateActivity::class.java))
-            finish()
         }
     }
 }

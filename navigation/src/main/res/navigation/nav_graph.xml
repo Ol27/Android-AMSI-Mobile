@@ -9,12 +9,6 @@
         android:name="com.test.feed.ui.FeedFragment"
         android:label="Feed" >
         <action
-            android:id="@+id/action_feedFragment_to_eventsListFragment"
-            app:destination="@id/eventsListFragment" />
-        <action
-            android:id="@+id/action_feedFragment_to_jobsListFragment"
-            app:destination="@id/jobsListFragment" />
-        <action
             android:id="@+id/action_feedFragment_to_eventFragment"
             app:destination="@id/eventFragment" />
         <action
@@ -79,5 +73,38 @@
         android:id="@+id/jobsFilterFragment"
         android:name="com.test.jobs.ui.JobsFilterFragment"
         android:label="Jobs Filter" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.test.profile.ui.ProfileFragment"
+        android:label="Profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_jobApplicationsHistoryFragment"
+            app:destination="@id/jobApplicationsHistoryFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_personalInformationFragment"
+            app:destination="@id/personalInformationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/personalInformationFragment"
+        android:name="com.test.profile.ui.PersonalInformationFragment"
+        android:label="Personal information" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/jobApplicationsHistoryFragment"
+        android:name="com.test.profile.ui.JobApplicationsHistoryFragment"
+        android:label="Job Applications history" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.test.profile.ui.SettingsFragment"
+        android:label="Settings" >
     </fragment>
 </navigation>

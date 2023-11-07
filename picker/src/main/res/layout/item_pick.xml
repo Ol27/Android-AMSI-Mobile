@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_margin="16dp"
-            android:src="@drawable/ic_arrow_drop"
+            android:src="@drawable/ic_arrow_selected"
             android:visibility="gone" />
 
     </FrameLayout>

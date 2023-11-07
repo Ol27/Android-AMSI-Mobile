@@ -4,10 +4,10 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.test.common.adapter.JobsAdapter
 import com.test.common.base.BaseFragment
 import com.test.feed.adapter.ContainerEventsAdapter
 import com.test.feed.adapter.HeaderAdapter
-import com.test.feed.adapter.JobsAdapter
 import com.test.feed.adapter.TitleEventsAdapter
 import com.test.feed.adapter.TitleJobAdapter
 import com.test.feed.databinding.FragmentFeedBinding
@@ -57,7 +57,7 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>(FragmentFeedBinding::infl
         headerAdapter = HeaderAdapter()
 
         titleEventsAdapter = TitleEventsAdapter {
-            findNavController().navigate(com.test.navigation.R.id.action_feedFragment_to_eventsListFragment)
+            findNavController().navigate(com.test.navigation.R.id.eventsListFragment)
         }
         eventsContainerAdapter = ContainerEventsAdapter {
             findNavController().navigate(

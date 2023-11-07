@@ -29,6 +29,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 navController.popBackStack(R.id.feedFragment, false)
                 navController.navigate(R.id.jobsListFragment)
             }
+            R.id.profileFragment -> {
+                navController.popBackStack(R.id.feedFragment, false)
+                navController.navigate(R.id.profileFragment)
+            }
         }
         true
     }
@@ -46,6 +50,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 com.test.navigation.R.id.eventFragment,
                 com.test.navigation.R.id.eventsMapFragment,
                 com.test.navigation.R.id.jobsFilterFragment,
+                com.test.navigation.R.id.settingsFragment,
+                com.test.navigation.R.id.personalInformationFragment,
+                com.test.navigation.R.id.jobApplicationsHistoryFragment,
                 com.test.navigation.R.id.jobFragment -> binding.navBarView.visibility = View.GONE
 
                 else -> binding.navBarView.visibility = View.VISIBLE
