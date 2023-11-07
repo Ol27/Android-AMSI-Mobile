@@ -5,7 +5,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.test.common.base.BaseFragment
 import com.test.domain.model.Job
-import com.test.jobs.adapter.JobsAdapter
+import com.test.common.adapter.JobsAdapter
 import com.test.jobs.databinding.FragmentJobsListBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

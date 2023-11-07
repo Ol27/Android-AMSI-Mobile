@@ -125,28 +125,6 @@ class JobMockService {
                 "Medium",
                 "Vacancy only for students"
             ),
-            Job(
-                6,
-                "UI Researcher",
-                "Pinterest",
-                "45",
-                "Placeholder",
-                "Permanent",
-                23,
-                "Travel paid, Breaks paid, Parking paid",
-                "Full time",
-                "Full time",
-                2,
-                "250",
-                "19.11.2023",
-                "23",
-                "+1 929 303 45 56",
-                "Ann",
-                "Native",
-                "Intermediate",
-                "Medium",
-                "Vacancy only for students"
-            )
         )
     }
 }

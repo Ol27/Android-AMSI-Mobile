@@ -1,4 +1,4 @@
-package com.test.jobs.adapter
+package com.test.common.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

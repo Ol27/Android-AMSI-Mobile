@@ -53,6 +53,7 @@
         android:insetBottom="0dp"
         android:letterSpacing="0"
         android:text="Save"
+        android:fontFamily="@font/noto_sans_bold"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:backgroundTint="#EB683A"

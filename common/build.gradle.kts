@@ -45,6 +45,7 @@ dependencies {
 
     api("io.coil-kt:coil:2.4.0")
     api(project(":navigation"))
+    api(project(":domain"))
 
     api("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
     api("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")

@@ -23,6 +23,7 @@
             <option value="$PROJECT_DIR$/features/jobs" />
             <option value="$PROJECT_DIR$/features/main" />
             <option value="$PROJECT_DIR$/features/onboarding" />
+            <option value="$PROJECT_DIR$/features/profile" />
             <option value="$PROJECT_DIR$/features/splash" />
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/picker" />

@@ -7,6 +7,13 @@ import android.content.Intent
 class NavExt {
 
     companion object {
+        fun Context.logOut() {
+            val clazz = Class.forName("com.test.auth.ui.AuthActivity")
+            val intent = Intent(this, clazz)
+            intent.flags =
+                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NO_ANIMATION
+            startActivity(intent)
+        }
 
         fun Context.openAuth() {
             val clazz = Class.forName("com.test.auth.ui.AuthActivity")
@@ -25,9 +32,9 @@ class NavExt {
 
         fun Context.openMain() {
             val clazz = Class.forName("com.test.main.MainActivity")
-            startActivity(Intent(this, clazz))
+            val intent = Intent(this, clazz)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
         }
-
     }
-
 }

@@ -22,7 +22,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         }
         btnLoginSignin.setOnClickListener {
             openMain()
-            finish()
         }
         materialTextView6.setOnClickListener {
             startActivity(Intent(this@LoginActivity, ForgotPassActivity::class.java))
