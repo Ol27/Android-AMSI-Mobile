@@ -75,4 +75,9 @@ class EditResumeFragment :
             }
         }
     }
+
+    override fun clear() {
+        super.clear()
+        mAdapter = null
+    }
 }

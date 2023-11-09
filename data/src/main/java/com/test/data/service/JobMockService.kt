@@ -1,16 +1,18 @@
 package com.test.data.service
 
 import com.test.domain.model.Job
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class JobMockService {
     private val data: List<Job> = initMockData()
 
-    suspend fun getAllJobs(): List<Job> {
-        return data
+    suspend fun getAllJobs(): List<Job> = withContext(Dispatchers.IO) {
+        data
     }
 
-    suspend fun getJobById(id: Long): Job? {
-        return data.find { it.id == id }
+    suspend fun getJobById(id: Long): Job? = withContext(Dispatchers.IO) {
+        data.find { it.id == id }
     }
 
     private fun initMockData(): List<Job> {

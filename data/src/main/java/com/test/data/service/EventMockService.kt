@@ -1,21 +1,22 @@
 package com.test.data.service
 
 import com.test.domain.model.Event
-import com.test.domain.model.Job
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class EventMockService {
     private val data: List<Event> = initMockData()
 
-    suspend fun getAllEvents(): List<Event> {
-        return data
+    suspend fun getAllEvents(): List<Event> = withContext(Dispatchers.IO) {
+        data
     }
 
-    suspend fun getLastEvents(): List<Event> {
-        return data.subList(0, 5)
+    suspend fun getLastEvents(): List<Event> = withContext(Dispatchers.IO) {
+        data.subList(0, 5)
     }
 
-    suspend fun getEventById(id: Long): Event? {
-        return data.find { it.id == id }
+    suspend fun getEventById(id: Long): Event? = withContext(Dispatchers.IO) {
+        data.find { it.id == id }
     }
 
     private fun initMockData(): List<Event> {
