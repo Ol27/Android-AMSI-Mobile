@@ -1,5 +1,6 @@
 package com.test.common.ext
 
+import android.app.DatePickerDialog
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -17,6 +18,9 @@ import androidx.core.text.parseAsHtml
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.test.common.util.CustomPasswordTransformationMethod
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class ViewExt {
 
@@ -63,6 +67,29 @@ class ViewExt {
         fun TextInputEditText.setCustomPasswordMask(showPassword: Boolean) {
             transformationMethod = if (showPassword) null else CustomPasswordTransformationMethod()
             text?.let { setSelection(it.length) }
+        }
+
+        fun TextInputLayout.requireDate(context: Context) {
+            editText?.setOnClickListener {
+                val myCalendar = Calendar.getInstance()
+
+                val dateListener = DatePickerDialog.OnDateSetListener { _, year, month, day ->
+                    myCalendar.set(Calendar.YEAR, year)
+                    myCalendar.set(Calendar.MONTH, month)
+                    myCalendar.set(Calendar.DAY_OF_MONTH, day)
+                    val myFormat = "dd/MM/yyyy"
+                    val dateFormat = SimpleDateFormat(myFormat, Locale.ROOT)
+                    editText?.setText(dateFormat.format(myCalendar.time))
+                }
+
+                DatePickerDialog(
+                    context,
+                    dateListener,
+                    myCalendar.get(Calendar.YEAR),
+                    myCalendar.get(Calendar.MONTH),
+                    myCalendar.get(Calendar.DAY_OF_MONTH)
+                ).show()
+            }
         }
     }
 }

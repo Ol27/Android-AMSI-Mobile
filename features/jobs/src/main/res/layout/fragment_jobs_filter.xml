@@ -17,27 +17,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.button.MaterialButton
+        <ImageView
             android:id="@+id/btn_filter_back"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:backgroundTint="@color/white"
-            android:elevation="0dp"
-            android:insetLeft="0dp"
-            android:insetTop="0dp"
-            android:insetRight="0dp"
-            android:insetBottom="0dp"
-            app:cornerRadius="12dp"
-            app:icon="@drawable/ic_back"
-            app:iconGravity="textStart"
-            app:iconPadding="0dp"
-            app:iconTint="@null"
+            android:src="@drawable/ic_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-        </com.google.android.material.button.MaterialButton>
+        </ImageView>
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"

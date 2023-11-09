@@ -54,7 +54,9 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>(FragmentFeedBinding::infl
             ItemModel.TitleJob("Jobs for you"),
         )
 
-        headerAdapter = HeaderAdapter()
+        headerAdapter = HeaderAdapter {
+            findNavController().navigate(com.test.navigation.R.id.profileFragment)
+        }
 
         titleEventsAdapter = TitleEventsAdapter {
             findNavController().navigate(com.test.navigation.R.id.eventsListFragment)

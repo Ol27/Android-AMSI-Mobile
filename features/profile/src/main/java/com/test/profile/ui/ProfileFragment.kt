@@ -12,7 +12,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
 
     private fun initListeners() = with(binding) {
         binding.cvProfileMyResume.setOnClickListener {
-
+            findNavController().navigate(R.id.action_profileFragment_to_resumeFragment)
         }
 
         binding.cvProfilePersonalInformation.setOnClickListener {
