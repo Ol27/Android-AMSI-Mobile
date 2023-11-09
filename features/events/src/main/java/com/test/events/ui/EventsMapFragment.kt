@@ -26,16 +26,15 @@ class EventsMapFragment :
     private val viewModel: EventsViewModel by viewModel()
 
     override fun initView() {
+        viewModel.getEvent(1)
+        viewModel.getAllEvents()
         setupBottomSheet()
         setupAdapter()
-
         binding.btnEventsMapBack.setOnClickListener {
             findNavController().popBackStack()
         }
-
         val mapFragment =
             childFragmentManager.findFragmentById(R.id.map_events_map_fragment) as? SupportMapFragment
-
         mapFragment?.getMapAsync { googleMap ->
             setupMap(googleMap)
             addMarkers(googleMap)
@@ -45,27 +44,22 @@ class EventsMapFragment :
     private fun setupMap(googleMap: GoogleMap) {
         googleMap.setOnMarkerClickListener(this)
         googleMap.uiSettings.isCompassEnabled = false
-        viewModel.getEvent(1)
-        var eventToCenterCamera: Event? = null
         viewModel.event.observe(viewLifecycleOwner) {
-            eventToCenterCamera = it
+            val cameraUpdate =
+                CameraUpdateFactory.newLatLngZoom(getLatLngFromData(it), 15.0f)
+            googleMap.moveCamera(cameraUpdate)
         }
-        val cameraUpdate =
-            CameraUpdateFactory.newLatLngZoom(getLatLngFromData(eventToCenterCamera!!), 15.0f)
-        googleMap.moveCamera(cameraUpdate)
     }
 
     private fun addMarkers(googleMap: GoogleMap) {
-        for (i in 0..4) {
-            viewModel.getEvent(i.toLong() + 1)
-            viewModel.event.observe(viewLifecycleOwner) {
-                val event = it
+        viewModel.eventsList.observe(viewLifecycleOwner) {
+            for (i in 0..3) {
                 val marker = googleMap.addMarker(
                     MarkerOptions()
-                        .position(getLatLngFromData(event))
+                        .position(getLatLngFromData(it[i]))
                         .icon(MapUtil.createCustomMarkerIcon(requireContext()))
                 )
-                marker.tag = event
+                marker.tag = it[i]
             }
         }
     }
@@ -84,7 +78,6 @@ class EventsMapFragment :
     }
 
     private fun setupAdapter() {
-        viewModel.getAllEvents()
         val eventsAdapter = EventsAdapter { event -> navigateToEventScreen(event) }
         binding.rvEventsMapList.apply {
             adapter = eventsAdapter
