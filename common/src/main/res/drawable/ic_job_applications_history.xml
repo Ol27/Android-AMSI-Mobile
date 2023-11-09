@@ -17,9 +17,9 @@
       android:strokeColor="#ffffff"/>
   <path
       android:pathData="M10.162,16.5C10,17.603 10,19.049 10,21C10,24.771 10,26.657 11.172,27.828C12.343,29 14.229,29 18,29L22,29C25.771,29 27.657,29 28.828,27.828C30,26.657 30,24.771 30,21C30,19.049 30,17.604 29.838,16.5C27.561,17.979 26.102,18.923 24.75,19.505L24.75,20C24.75,20.414 24.414,20.75 24,20.75C23.591,20.75 23.259,20.423 23.25,20.016C21.12,20.578 18.88,20.578 16.75,20.016C16.741,20.423 16.409,20.75 16,20.75C15.586,20.75 15.25,20.414 15.25,20L15.25,19.504C13.898,18.923 12.439,17.979 10.162,16.5Z"
-      android:strokeAlpha="0.5"
+      android:strokeAlpha="1"
       android:strokeWidth="1.5"
-      android:fillColor="#ffffff"
-      android:strokeColor="#ffffff"
-      android:fillAlpha="0.5"/>
+      android:fillColor="#f5b49d"
+      android:strokeColor="#f5b49d"
+      android:fillAlpha="1"/>
 </vector>

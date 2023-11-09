@@ -53,6 +53,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 com.test.navigation.R.id.settingsFragment,
                 com.test.navigation.R.id.personalInformationFragment,
                 com.test.navigation.R.id.jobApplicationsHistoryFragment,
+                com.test.navigation.R.id.resumeFragment,
+                com.test.navigation.R.id.editResumeFragment,
+                com.test.navigation.R.id.successFragment,
                 com.test.navigation.R.id.jobFragment -> binding.navBarView.visibility = View.GONE
 
                 else -> binding.navBarView.visibility = View.VISIBLE

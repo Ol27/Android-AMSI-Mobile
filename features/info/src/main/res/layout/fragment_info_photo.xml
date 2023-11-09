@@ -60,6 +60,7 @@
         android:id="@+id/materialButton"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
         android:layout_height="56dp"
         android:layout_margin="24dp"
         android:insetTop="0dp"

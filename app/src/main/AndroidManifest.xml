@@ -65,6 +65,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.test.main.MainActivity"
+            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait" />
 
     </application>

@@ -88,6 +88,9 @@
         <action
             android:id="@+id/action_profileFragment_to_personalInformationFragment"
             app:destination="@id/personalInformationFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_resumeFragment"
+            app:destination="@id/resumeFragment" />
     </fragment>
 
     <fragment
@@ -106,5 +109,29 @@
         android:id="@+id/settingsFragment"
         android:name="com.test.profile.ui.SettingsFragment"
         android:label="Settings" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/resumeFragment"
+        android:name="com.test.profile.ui.resume.ResumeFragment"
+        android:label="Resume" >
+        <action
+            android:id="@+id/action_resumeFragment_to_editResumeFragment"
+            app:destination="@id/editResumeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editResumeFragment"
+        android:name="com.test.profile.ui.resume.EditResumeFragment"
+        android:label="Edit resume" >
+        <action
+            android:id="@+id/action_editResumeFragment_to_successFragment"
+            app:destination="@id/successFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.test.profile.ui.resume.SuccessFragment"
+        android:label="Success" >
     </fragment>
 </navigation>

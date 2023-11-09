@@ -9,7 +9,7 @@ import com.test.feed.databinding.ItemHeaderBinding
 import com.test.feed.model.ItemModel
 
 
-class HeaderAdapter :
+class HeaderAdapter(private val onProfileClicked: () -> Unit) :
     ListAdapter<ItemModel.Header, HeaderAdapter.Holder>(DiffFactory.DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder =
@@ -17,10 +17,13 @@ class HeaderAdapter :
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(getItem(position))
+        holder.binding.imageView5.setOnClickListener {
+            onProfileClicked()
+        }
     }
 
     inner class Holder(
-        private val binding: ItemHeaderBinding,
+        val binding: ItemHeaderBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: ItemModel.Header) = with(binding) {}
