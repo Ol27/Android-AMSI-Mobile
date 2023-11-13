@@ -14,7 +14,7 @@ data class Event(
     val phone: String,
     val about: String,
     val dateTime: String,
-    val lat:  Double = 0.0,
+    val lat: Double = 0.0,
     val lng: Double = 0.0,
     var liked: Boolean = false
 )

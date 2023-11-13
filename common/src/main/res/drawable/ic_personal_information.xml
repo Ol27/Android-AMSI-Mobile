@@ -3,19 +3,19 @@
     android:height="40dp"
     android:viewportWidth="40"
     android:viewportHeight="40">
-  <path
-      android:pathData="M8,0L32,0A8,8 0,0 1,40 8L40,32A8,8 0,0 1,32 40L8,40A8,8 0,0 1,0 32L0,8A8,8 0,0 1,8 0z"
-      android:fillColor="#EB683A"/>
-  <path
-      android:pathData="M29.25,20C29.25,25.109 25.109,29.25 20,29.25C14.891,29.25 10.75,25.109 10.75,20C10.75,14.891 14.891,10.75 20,10.75C25.109,10.75 29.25,14.891 29.25,20Z"
-      android:strokeAlpha="1"
-      android:strokeWidth="1.5"
-      android:fillColor="#f5b49d"
-      android:strokeColor="#f5b49d"
-      android:fillAlpha="1"/>
-  <path
-      android:pathData="M24.382,26.393C23.136,27.249 21.628,27.75 20,27.75C18.372,27.75 16.864,27.249 15.618,26.393C15.275,26.158 15.204,25.772 15.34,25.523C15.876,24.542 17.028,23.75 20,23.75C22.972,23.75 24.124,24.542 24.66,25.523C24.796,25.772 24.725,26.158 24.382,26.393ZM22.25,17C22.25,18.243 21.243,19.25 20,19.25C18.757,19.25 17.75,18.243 17.75,17C17.75,15.757 18.757,14.75 20,14.75C21.243,14.75 22.25,15.757 22.25,17Z"
-      android:strokeWidth="1.5"
-      android:fillColor="#ffffff"
-      android:strokeColor="#ffffff"/>
+    <path
+        android:fillColor="#EB683A"
+        android:pathData="M8,0L32,0A8,8 0,0 1,40 8L40,32A8,8 0,0 1,32 40L8,40A8,8 0,0 1,0 32L0,8A8,8 0,0 1,8 0z" />
+    <path
+        android:fillAlpha="1"
+        android:fillColor="#f5b49d"
+        android:pathData="M29.25,20C29.25,25.109 25.109,29.25 20,29.25C14.891,29.25 10.75,25.109 10.75,20C10.75,14.891 14.891,10.75 20,10.75C25.109,10.75 29.25,14.891 29.25,20Z"
+        android:strokeWidth="1.5"
+        android:strokeAlpha="1"
+        android:strokeColor="#f5b49d" />
+    <path
+        android:fillColor="#ffffff"
+        android:pathData="M24.382,26.393C23.136,27.249 21.628,27.75 20,27.75C18.372,27.75 16.864,27.249 15.618,26.393C15.275,26.158 15.204,25.772 15.34,25.523C15.876,24.542 17.028,23.75 20,23.75C22.972,23.75 24.124,24.542 24.66,25.523C24.796,25.772 24.725,26.158 24.382,26.393ZM22.25,17C22.25,18.243 21.243,19.25 20,19.25C18.757,19.25 17.75,18.243 17.75,17C17.75,15.757 18.757,14.75 20,14.75C21.243,14.75 22.25,15.757 22.25,17Z"
+        android:strokeWidth="1.5"
+        android:strokeColor="#ffffff" />
 </vector>

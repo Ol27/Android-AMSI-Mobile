@@ -19,8 +19,8 @@ class JobMockService {
         return listOf(
             Job(
                 1,
-                "UI Researcher",
-                "Pinterest",
+                "Android developer",
+                "Etnocode",
                 "45",
                 "Placeholder",
                 "Permanent",
@@ -41,7 +41,7 @@ class JobMockService {
             ),
             Job(
                 2,
-                "UI Researcher",
+                "Android developer",
                 "Pinterest",
                 "45",
                 "Placeholder",
@@ -63,7 +63,7 @@ class JobMockService {
             ),
             Job(
                 3,
-                "UI Researcher",
+                "Java developer",
                 "Pinterest",
                 "45",
                 "Placeholder",
@@ -107,7 +107,7 @@ class JobMockService {
             ),
             Job(
                 5,
-                "UI Researcher",
+                "Backend engineer",
                 "Pinterest",
                 "45",
                 "Placeholder",

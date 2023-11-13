@@ -1,8 +1,5 @@
 package com.test.profile.ui.resume
 
-import android.os.Bundle
-import android.view.View
-import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import com.test.common.base.BaseFragment
@@ -18,10 +15,6 @@ class SuccessFragment : BaseFragment<FragmentSuccessBinding>(FragmentSuccessBind
         binding.btnResumeSuccessClose.setOnClickListener {
             navigateHome()
         }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             navigateHome()
         }

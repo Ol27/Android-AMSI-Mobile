@@ -99,14 +99,14 @@
             android:paddingTop="22dp">
 
             <com.google.android.material.imageview.ShapeableImageView
-                app:shapeAppearanceOverlay="@style/Circle"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:scaleType="centerCrop"
                 android:layout_gravity="center_horizontal"
+                android:scaleType="centerCrop"
                 android:src="@drawable/mock_image_job"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:shapeAppearanceOverlay="@style/Circle" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_job_details_title"
