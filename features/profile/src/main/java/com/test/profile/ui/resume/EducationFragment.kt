@@ -1,18 +1,12 @@
 package com.test.profile.ui.resume
 
-import android.app.DatePickerDialog
 import android.content.Intent
-import android.widget.DatePicker
 import androidx.activity.result.contract.ActivityResultContracts
-import com.google.android.material.textfield.TextInputLayout
 import com.test.common.base.BaseFragment
 import com.test.common.ext.ViewExt.Companion.requireDate
 import com.test.picker.data.Data
 import com.test.picker.ui.PickerActivity
 import com.test.profile.databinding.FragmentEducationBinding
-import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Locale
 
 class EducationFragment :
     BaseFragment<FragmentEducationBinding>(FragmentEducationBinding::inflate) {

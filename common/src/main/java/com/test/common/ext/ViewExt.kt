@@ -4,7 +4,6 @@ import android.app.DatePickerDialog
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import android.health.connect.datatypes.units.Length
 import android.os.Build
 import android.text.SpannableString
 import android.text.TextPaint
@@ -56,7 +55,8 @@ class ViewExt {
         }
 
         fun TextView.copyToClipboard(label: String) {
-            val clipboardManager = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clipboardManager =
+                context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             val clipData = ClipData.newPlainText(label, text)
             clipboardManager.setPrimaryClip(clipData)
             if (Build.VERSION.SDK_INT < 33) {

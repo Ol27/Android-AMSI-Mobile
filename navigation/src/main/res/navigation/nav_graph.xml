@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/feedFragment"
         android:name="com.test.feed.ui.FeedFragment"
-        android:label="Feed" >
+        android:label="Feed">
         <action
             android:id="@+id/action_feedFragment_to_eventFragment"
             app:destination="@id/eventFragment" />
@@ -19,7 +19,7 @@
     <fragment
         android:id="@+id/eventsListFragment"
         android:name="com.test.events.ui.EventsListFragment"
-        android:label="Events" >
+        android:label="Events">
         <action
             android:id="@+id/action_eventsListFragment_to_eventFragment"
             app:destination="@id/eventFragment" />
@@ -31,17 +31,17 @@
     <fragment
         android:id="@+id/eventFragment"
         android:name="com.test.events.ui.EventFragment"
-        android:label="Event" >
+        android:label="Event">
         <argument
             android:name="eventId"
-            app:argType="long"
-            android:defaultValue="0L" />
+            android:defaultValue="0L"
+            app:argType="long" />
     </fragment>
 
     <fragment
         android:id="@+id/eventsMapFragment"
         android:name="com.test.events.ui.EventsMapFragment"
-        android:label="Events Map" >
+        android:label="Events Map">
         <action
             android:id="@+id/action_eventsMapFragment_to_eventFragment"
             app:destination="@id/eventFragment" />
@@ -50,7 +50,7 @@
     <fragment
         android:id="@+id/jobsListFragment"
         android:name="com.test.jobs.ui.JobsListFragment"
-        android:label="Jobs" >
+        android:label="Jobs">
         <action
             android:id="@+id/action_jobsListFragment_to_jobFragment"
             app:destination="@id/jobFragment" />
@@ -62,23 +62,22 @@
     <fragment
         android:id="@+id/jobFragment"
         android:name="com.test.jobs.ui.JobFragment"
-        android:label="Job" >
+        android:label="Job">
         <argument
             android:name="jobId"
-            app:argType="long"
-            android:defaultValue="0L" />
+            android:defaultValue="0L"
+            app:argType="long" />
     </fragment>
 
     <fragment
         android:id="@+id/jobsFilterFragment"
         android:name="com.test.jobs.ui.JobsFilterFragment"
-        android:label="Jobs Filter" >
-    </fragment>
+        android:label="Jobs Filter"></fragment>
 
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.test.profile.ui.ProfileFragment"
-        android:label="Profile" >
+        android:label="Profile">
         <action
             android:id="@+id/action_profileFragment_to_jobApplicationsHistoryFragment"
             app:destination="@id/jobApplicationsHistoryFragment" />
@@ -96,25 +95,22 @@
     <fragment
         android:id="@+id/personalInformationFragment"
         android:name="com.test.profile.ui.PersonalInformationFragment"
-        android:label="Personal information" >
-    </fragment>
+        android:label="Personal information"></fragment>
 
     <fragment
         android:id="@+id/jobApplicationsHistoryFragment"
         android:name="com.test.profile.ui.JobApplicationsHistoryFragment"
-        android:label="Job Applications history" >
-    </fragment>
+        android:label="Job Applications history"></fragment>
 
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.test.profile.ui.SettingsFragment"
-        android:label="Settings" >
-    </fragment>
+        android:label="Settings"></fragment>
 
     <fragment
         android:id="@+id/resumeFragment"
         android:name="com.test.profile.ui.resume.ResumeFragment"
-        android:label="Resume" >
+        android:label="Resume">
         <action
             android:id="@+id/action_resumeFragment_to_editResumeFragment"
             app:destination="@id/editResumeFragment" />
@@ -123,7 +119,7 @@
     <fragment
         android:id="@+id/editResumeFragment"
         android:name="com.test.profile.ui.resume.EditResumeFragment"
-        android:label="Edit resume" >
+        android:label="Edit resume">
         <action
             android:id="@+id/action_editResumeFragment_to_successFragment"
             app:destination="@id/successFragment" />
@@ -132,6 +128,14 @@
     <fragment
         android:id="@+id/successFragment"
         android:name="com.test.profile.ui.resume.SuccessFragment"
-        android:label="Success" >
+        android:label="Success"></fragment>
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.test.search.ui.SearchFragment"
+        android:label="Search">
+        <action
+            android:id="@+id/action_searchFragment_to_jobFragment"
+            app:destination="@id/jobFragment" />
     </fragment>
 </navigation>

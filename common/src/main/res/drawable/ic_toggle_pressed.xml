@@ -3,15 +3,15 @@
     android:height="24dp"
     android:viewportWidth="44"
     android:viewportHeight="24">
-  <path
-      android:pathData="M12,0L32,0A12,12 0,0 1,44 12L44,12A12,12 0,0 1,32 24L12,24A12,12 0,0 1,0 12L0,12A12,12 0,0 1,12 0z"
-      android:fillColor="#EB683A"/>
-  <path
-      android:pathData="M32,1L32,1A11,11 0,0 1,43 12L43,12A11,11 0,0 1,32 23L32,23A11,11 0,0 1,21 12L21,12A11,11 0,0 1,32 1z"
-      android:fillColor="#ffffff"/>
-  <path
-      android:pathData="M32,1L32,1A11,11 0,0 1,43 12L43,12A11,11 0,0 1,32 23L32,23A11,11 0,0 1,21 12L21,12A11,11 0,0 1,32 1z"
-      android:strokeWidth="2"
-      android:fillColor="#00000000"
-      android:strokeColor="#EB683A"/>
+    <path
+        android:fillColor="#EB683A"
+        android:pathData="M12,0L32,0A12,12 0,0 1,44 12L44,12A12,12 0,0 1,32 24L12,24A12,12 0,0 1,0 12L0,12A12,12 0,0 1,12 0z" />
+    <path
+        android:fillColor="#ffffff"
+        android:pathData="M32,1L32,1A11,11 0,0 1,43 12L43,12A11,11 0,0 1,32 23L32,23A11,11 0,0 1,21 12L21,12A11,11 0,0 1,32 1z" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M32,1L32,1A11,11 0,0 1,43 12L43,12A11,11 0,0 1,32 23L32,23A11,11 0,0 1,21 12L21,12A11,11 0,0 1,32 1z"
+        android:strokeWidth="2"
+        android:strokeColor="#EB683A" />
 </vector>

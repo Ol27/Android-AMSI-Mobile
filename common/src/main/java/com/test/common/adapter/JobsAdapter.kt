@@ -12,6 +12,22 @@ class JobsAdapter(
     private val onJobClicked: (Job) -> Unit
 ) : ListAdapter<Job, JobsAdapter.JobsViewHolder>(DiffFactory.DiffCallback()) {
 
+    private var jobListFull: List<Job> = listOf()
+
+    fun submitJobs(jobs: List<Job>) {
+        jobListFull = jobs
+        submitList(jobs)
+    }
+
+    fun filterJobsByTitle(titleQuery: String) {
+        val filteredList = if (titleQuery.isNotEmpty()) {
+            jobListFull.filter { job -> job.title.contains(titleQuery, ignoreCase = true) }
+        } else {
+            jobListFull
+        }
+        submitList(filteredList)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobsViewHolder =
         JobsViewHolder(
             ItemJobBinding.inflate(
@@ -22,9 +38,10 @@ class JobsAdapter(
         )
 
     override fun onBindViewHolder(holder: JobsViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        val item = getItem(position)
+        holder.bind(item)
         holder.binding.root.setOnClickListener {
-            onJobClicked(getItem(position))
+            onJobClicked(item)
         }
     }
 

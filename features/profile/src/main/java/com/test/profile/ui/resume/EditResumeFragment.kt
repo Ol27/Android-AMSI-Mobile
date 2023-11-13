@@ -13,7 +13,7 @@ class EditResumeFragment :
 
     private var mAdapter: ResumeAdapter? = null
 
-    override fun initView()  {
+    override fun initView() {
         updateNav(0)
         initViewPager()
         binding.btnResumeEditBack.setOnClickListener {
@@ -65,10 +65,12 @@ class EditResumeFragment :
                 btnResumeEditNext.text = "Next"
                 btnResumeEditPrev.visibility = View.GONE
             }
+
             3 -> {
                 btnResumeEditNext.text = "Save"
                 btnResumeEditPrev.visibility = View.VISIBLE
             }
+
             else -> {
                 btnResumeEditNext.text = "Next"
                 btnResumeEditPrev.visibility = View.VISIBLE

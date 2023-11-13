@@ -22,4 +22,8 @@ data class Job(
     val stressResistance: String,
     val note: String,
     var liked: Boolean = false
-)
+) {
+    override fun toString(): String {
+        return title
+    }
+}

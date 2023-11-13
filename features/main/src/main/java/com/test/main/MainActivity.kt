@@ -14,6 +14,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     private val onNavigationItemSelectedListener = NavigationBarView.OnItemSelectedListener {
+        binding.imageView.setImageResource(com.test.common.R.drawable.btn_search)
         when (it.itemId) {
             R.id.feedFragment -> {
                 navController.popBackStack(R.id.feedFragment, true)
@@ -29,6 +30,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 navController.popBackStack(R.id.feedFragment, false)
                 navController.navigate(R.id.jobsListFragment)
             }
+
             R.id.profileFragment -> {
                 navController.popBackStack(R.id.feedFragment, false)
                 navController.navigate(R.id.profileFragment)
@@ -38,10 +40,26 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     override fun initView() {
-        binding.bottomNavigationView.setupWithNavController(navController)
-        binding.bottomNavigationView.itemIconTintList = null
-        binding.bottomNavigationView.setOnItemSelectedListener(onNavigationItemSelectedListener)
+        initBottomNavigation()
+        initSearchButton()
         addDestinationChangeListener()
+        binding.imageView.setImageResource(com.test.common.R.drawable.btn_search)
+    }
+
+    private fun initSearchButton() = with(binding) {
+        imageView.setOnClickListener {
+            bottomNavigationView.selectedItemId = R.id.searchFragment
+            navController.popBackStack(R.id.feedFragment, false)
+            navController.navigate(R.id.searchFragment)
+            imageView.setImageResource(com.test.common.R.drawable.btn_search_selected)
+        }
+    }
+
+
+    private fun initBottomNavigation() = with(binding) {
+        bottomNavigationView.itemIconTintList = null
+        bottomNavigationView.setupWithNavController(navController)
+        bottomNavigationView.setOnItemSelectedListener(onNavigationItemSelectedListener)
     }
 
     private fun addDestinationChangeListener() {
@@ -57,6 +75,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 com.test.navigation.R.id.editResumeFragment,
                 com.test.navigation.R.id.successFragment,
                 com.test.navigation.R.id.jobFragment -> binding.navBarView.visibility = View.GONE
+
+                com.test.navigation.R.id.feedFragment -> {
+                    binding.navBarView.visibility = View.VISIBLE
+                    binding.imageView.setImageResource(com.test.common.R.drawable.btn_search)
+                }
 
                 else -> binding.navBarView.visibility = View.VISIBLE
             }
