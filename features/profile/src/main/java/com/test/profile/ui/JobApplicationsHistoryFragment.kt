@@ -22,7 +22,7 @@ class JobApplicationsHistoryFragment :
     }
 
     private fun initList() {
-        val jobsAdapter = JobsAdapter {}
+        val jobsAdapter = JobsAdapter()
         binding.rvJobApplicationsHistory.apply {
             adapter = jobsAdapter
             layoutManager = LinearLayoutManager(requireContext())

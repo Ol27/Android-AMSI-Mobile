@@ -100,4 +100,18 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_search_no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_medium"
+        android:text="No items found"
+        android:textColor="@color/grey_60"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"  />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
