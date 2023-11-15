@@ -96,7 +96,7 @@
             android:layout_marginTop="12dp"
             android:clipToPadding="false"
             android:paddingHorizontal="24dp"
-            tools:listitem="@layout/event_item" />
+            tools:listitem="@layout/item_event" />
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
