@@ -9,14 +9,20 @@ import com.test.common.factory.DiffFactory
 import com.test.domain.model.Job
 
 class JobsAdapter(
-    private val onJobClicked: (Job) -> Unit
+    private val onJobClicked: (Job) -> Unit = {},
+    private val onListEmpty: (isEmpty: Boolean) -> Unit = {}
 ) : ListAdapter<Job, JobsAdapter.JobsViewHolder>(DiffFactory.DiffCallback()) {
 
     private var jobListFull: List<Job> = listOf()
 
     fun submitJobs(jobs: List<Job>) {
-        jobListFull = jobs
-        submitList(jobs)
+        if (jobs.isEmpty()) {
+            onListEmpty(true)
+        } else {
+            onListEmpty(false)
+            jobListFull = jobs
+            submitList(jobs)
+        }
     }
 
     fun filterJobsByTitle(titleQuery: String) {
@@ -25,6 +31,7 @@ class JobsAdapter(
         } else {
             jobListFull
         }
+        onListEmpty(filteredList.isEmpty())
         submitList(filteredList)
     }
 

@@ -2,6 +2,7 @@ package com.test.search.ui
 
 
 import android.view.KeyEvent
+import android.view.View
 import androidx.activity.addCallback
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
@@ -69,7 +70,17 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
     }
 
     private fun initJobsList() = with(binding) {
-        jobsAdapter = JobsAdapter { navigateToJobScreen(it) }
+        jobsAdapter = JobsAdapter(
+            onJobClicked = { navigateToJobScreen(it) },
+            onListEmpty = {
+                if (it) {
+                    tvSearchNoData.visibility = View.VISIBLE
+                    rvSearchJobs.visibility = View.GONE
+                } else {
+                    tvSearchNoData.visibility = View.GONE
+                    rvSearchJobs.visibility = View.VISIBLE
+                }
+            })
         rvSearchJobs.adapter = jobsAdapter
         rvSearchJobs.layoutManager = LinearLayoutManager(requireContext())
     }

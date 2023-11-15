@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.test.common.adapter.JobsAdapter
 import com.test.common.base.BaseFragment
+import com.test.domain.model.Job
 import com.test.feed.adapter.ContainerEventsAdapter
 import com.test.feed.adapter.HeaderAdapter
 import com.test.feed.adapter.TitleEventsAdapter
@@ -69,12 +70,10 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>(FragmentFeedBinding::infl
         }
 
         titleJobAdapter = TitleJobAdapter()
-        jobsAdapter = JobsAdapter {
-            findNavController().navigate(
-                com.test.navigation.R.id.action_feedFragment_to_jobFragment,
-                bundleOf("ARG_JOB_ID" to it.id)
-            )
-        }
+
+        jobsAdapter = JobsAdapter (
+            onJobClicked = { navigateToJobScreen(it) }
+        )
 
         mAdapter = ConcatAdapter(
             headerAdapter,
@@ -102,5 +101,12 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>(FragmentFeedBinding::infl
         viewModel.jobsList.observe(viewLifecycleOwner) {
             jobsAdapter?.submitList(it)
         }
+    }
+
+    private fun navigateToJobScreen(job: Job) {
+        findNavController().navigate(
+            com.test.navigation.R.id.action_feedFragment_to_jobFragment,
+            bundleOf("ARG_JOB_ID" to job.id)
+        )
     }
 }

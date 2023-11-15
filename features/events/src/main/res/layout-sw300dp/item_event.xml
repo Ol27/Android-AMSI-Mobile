@@ -16,7 +16,7 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_event_item"
             android:layout_width="90dp"
-            android:layout_height="100dp"
+            android:layout_height="96dp"
             android:layout_margin="12dp"
             android:scaleType="centerCrop"
             android:src="@drawable/mock_image"
@@ -101,6 +101,9 @@
                     android:id="@+id/tv_event_item_city"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxWidth="50dp"
+                    android:maxLines="1"
                     android:text="California"
                     android:textColor="#6F747C"
                     android:textSize="12sp"
@@ -136,8 +139,9 @@
                     app:layout_constraintTop_toTopOf="@+id/materialTextView64" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/materialButton2"
                     style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="64dp"
                     android:layout_height="32dp"
                     android:clickable="false"
                     android:fontFamily="@font/noto_medium"
@@ -145,7 +149,6 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:letterSpacing="0"
-                    android:minWidth="64dp"
                     android:text="FREE"
                     android:textAllCaps="false"
                     android:textColor="#EB683A"
@@ -153,7 +156,8 @@
                     app:backgroundTint="#FFF2EC"
                     app:cornerRadius="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

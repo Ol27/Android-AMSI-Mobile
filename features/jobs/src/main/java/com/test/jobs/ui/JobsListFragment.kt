@@ -1,6 +1,7 @@
 package com.test.jobs.ui
 
 import android.view.KeyEvent
+import android.view.View
 import androidx.activity.addCallback
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
@@ -69,7 +70,17 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
     }
 
     private fun initJobsList() = with(binding) {
-        jobsAdapter = JobsAdapter { navigateToJobScreen(it) }
+        jobsAdapter = JobsAdapter(
+            onJobClicked = { navigateToJobScreen(it) },
+            onListEmpty = {
+                if (it) {
+                    tvJobsNoData.visibility = View.VISIBLE
+                    rvJobsList.visibility = View.GONE
+                } else {
+                    tvJobsNoData.visibility = View.GONE
+                    rvJobsList.visibility = View.VISIBLE
+                }
+            })
         rvJobsList.adapter = jobsAdapter
         rvJobsList.layoutManager = LinearLayoutManager(requireContext())
     }

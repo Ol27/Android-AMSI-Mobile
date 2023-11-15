@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.test.common.factory.DiffFactory
 import com.test.domain.model.Event
-import com.test.feed.databinding.ItemEventBinding
+import com.test.feed.databinding.ItemFeedEventBinding
 
 class EventsAdapter(private val openEvent: (event: Event) -> Unit) :
     ListAdapter<Event, EventsAdapter.Holder>(DiffFactory.DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder =
-        Holder(ItemEventBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        Holder(ItemFeedEventBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val event = getItem(position)
@@ -23,7 +23,7 @@ class EventsAdapter(private val openEvent: (event: Event) -> Unit) :
     }
 
     inner class Holder(
-        val binding: ItemEventBinding,
+        val binding: ItemFeedEventBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(event: Event) = with(binding) {
             tvItemEventDay.text = event.day

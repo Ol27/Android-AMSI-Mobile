@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.test.common.factory.DiffFactory
 import com.test.domain.model.Event
-import com.test.events.databinding.EventItemBinding
+import com.test.events.databinding.ItemEventBinding
 
 class EventsAdapter(
     private val onEventClicked: (Event) -> Unit
@@ -14,7 +14,7 @@ class EventsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventsViewHolder =
         EventsViewHolder(
-            EventItemBinding.inflate(
+            ItemEventBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -29,7 +29,7 @@ class EventsAdapter(
         }
     }
 
-    inner class EventsViewHolder(val binding: EventItemBinding) : ViewHolder(binding.root) {
+    inner class EventsViewHolder(val binding: ItemEventBinding) : ViewHolder(binding.root) {
         fun bind(event: Event) = with(binding) {
             tvEventItemName.text = event.name
             tvEventItemMonth.text = event.month
