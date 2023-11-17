@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:clipToPadding="false"
         android:paddingHorizontal="24dp"
-        android:paddingBottom="144dp"
+        android:paddingBottom="158dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
