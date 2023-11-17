@@ -110,17 +110,4 @@ object Data {
             fun asList() = values().map { it.fullName }
         }
     }
-
-    enum class Date(val fullName: String) {
-        JANUARY_1("January 1, 2023"),
-        MARCH_15("March 15, 2023"),
-        JULY_1("July 1, 2023"),
-        SEPTEMBER_1("September 1, 2023"),
-        DECEMBER_25("December 25, 2023");
-
-        companion object {
-            fun asList() = values().map { it.fullName }
-        }
-    }
-
 }
