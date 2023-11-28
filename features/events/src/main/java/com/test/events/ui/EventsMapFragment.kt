@@ -24,36 +24,57 @@ class EventsMapFragment :
     OnMarkerClickListener {
 
     private val viewModel: EventsViewModel by viewModel()
+    private var eventId: Long = -1L
+
+    private val mapFragment by lazy {
+        childFragmentManager.findFragmentById(R.id.map_events_map_fragment) as? SupportMapFragment
+    }
 
     override fun initView() {
-        viewModel.getEvent(1)
+        setupCenterEvent()
+        viewModel.event.observe(viewLifecycleOwner) {
+            setupMap(it)
+        }
         viewModel.getAllEvents()
         setupBottomSheet()
         setupAdapter()
         binding.btnEventsMapBack.setOnClickListener {
             findNavController().popBackStack()
         }
-        val mapFragment =
-            childFragmentManager.findFragmentById(R.id.map_events_map_fragment) as? SupportMapFragment
-        mapFragment?.getMapAsync { googleMap ->
-            setupMap(googleMap)
-            addMarkers(googleMap)
+        statusBarInset(binding.constraintLayout5)
+    }
+
+    private fun setupCenterEvent() {
+        val arguments = arguments
+        if (arguments != null && arguments.containsKey(ARG_EVENT_ID)) {
+            eventId = arguments.getLong(ARG_EVENT_ID, -1L)
+        }
+        if (eventId != -1L) {
+            viewModel.getEvent(eventId)
+        } else {
+            viewModel.getEvent(1)
         }
     }
 
-    private fun setupMap(googleMap: GoogleMap) {
-        googleMap.setOnMarkerClickListener(this)
-        googleMap.uiSettings.isCompassEnabled = false
-        viewModel.event.observe(viewLifecycleOwner) {
-            val cameraUpdate =
-                CameraUpdateFactory.newLatLngZoom(getLatLngFromData(it), 15.0f)
-            googleMap.moveCamera(cameraUpdate)
+    private fun setupMap(event: Event) {
+        mapFragment?.getMapAsync { googleMap ->
+            googleMap.setOnMarkerClickListener(this)
+            googleMap.uiSettings.isCompassEnabled = false
+            if (eventId == -1L) {
+                val cameraUpdate = CameraUpdateFactory.newLatLngZoom(getLatLngFromData(event), 9.5f)
+                googleMap.moveCamera(cameraUpdate)
+            } else {
+                val cameraUpdate =
+                    CameraUpdateFactory.newLatLngZoom(getLatLngFromData(event), 16.0f)
+                googleMap.moveCamera(cameraUpdate)
+            }
+            addMarkers(googleMap)
         }
     }
 
     private fun addMarkers(googleMap: GoogleMap) {
         viewModel.eventsList.observe(viewLifecycleOwner) {
-            for (i in 0..3) {
+            for (i in 0..2) {
                 val marker = googleMap.addMarker(
                     MarkerOptions()
                         .position(getLatLngFromData(it[i]))
@@ -106,5 +127,9 @@ class EventsMapFragment :
             com.test.navigation.R.id.action_eventsMapFragment_to_eventFragment,
             bundleOf(EventFragment.ARG_EVENT_ID to event.id)
         )
+    }
+
+    companion object {
+        const val ARG_EVENT_ID = "event_id"
     }
 }

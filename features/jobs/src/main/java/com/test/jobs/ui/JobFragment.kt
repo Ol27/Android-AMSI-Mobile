@@ -21,6 +21,7 @@ class JobFragment : BaseFragment<FragmentJobBinding>(FragmentJobBinding::inflate
             initData()
             initListeners()
         }
+        statusBarInset(binding.root)
     }
 
     private fun initListeners() {

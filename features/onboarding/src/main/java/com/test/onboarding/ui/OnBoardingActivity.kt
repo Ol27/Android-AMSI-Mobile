@@ -1,6 +1,7 @@
 package com.test.onboarding.ui
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.test.navigation.NavExt.Companion.openAuth
@@ -35,6 +36,7 @@ class OnBoardingActivity : AppCompatActivity(R.layout.activity_onboarding) {
     }
 
     private fun initInsetters() = with(binding) {
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         materialTextView.applyInsetter {
             type(statusBars = true) {
                 padding()

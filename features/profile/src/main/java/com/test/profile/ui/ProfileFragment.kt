@@ -8,6 +8,7 @@ import com.test.profile.databinding.FragmentProfileBinding
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
     override fun initView() {
         initListeners()
+        statusBarInset(binding.root)
     }
 
     private fun initListeners() = with(binding) {

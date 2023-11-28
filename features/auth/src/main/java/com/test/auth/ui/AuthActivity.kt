@@ -2,6 +2,7 @@ package com.test.auth.ui
 
 import android.content.Intent
 import android.graphics.Color
+import android.view.WindowManager
 import com.test.auth.databinding.ActivityAuthBinding
 import com.test.common.base.BaseActivity
 import com.test.common.ext.ViewExt.Companion.setLinkWithColor
@@ -12,8 +13,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
     override fun initView() {
         initInsetter()
         initOnClick()
-        initUi()
-    }
+        initUi() }
 
     private fun initUi() = with(binding) {
         materialTextView5.setLinkWithColor(
@@ -23,6 +23,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
     }
 
     private fun initInsetter() = with(binding) {
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         statusBarInset(imageView3)
         navInset(materialTextView5)
     }

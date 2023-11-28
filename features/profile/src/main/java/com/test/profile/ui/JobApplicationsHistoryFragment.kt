@@ -13,6 +13,7 @@ class JobApplicationsHistoryFragment :
     override fun initView() {
         initList()
         initListeners()
+        statusBarInset(binding.root)
     }
 
     private fun initListeners() = with(binding) {

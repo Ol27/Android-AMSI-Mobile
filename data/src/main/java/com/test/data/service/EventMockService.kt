@@ -31,12 +31,12 @@ class EventMockService {
                 "",
                 "Friday",
                 "11:00 PM",
-                "Street, 3, California, USA",
+                "AMSI 201 Av. José Gautier Benítez, Caguas, 00725, Puerto Rico",
                 "+1 100 12 467",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 "2023-10-23 22:00",
-                37.815329185289976,
-                -122.26598299147614
+                18.2194129,
+                -66.1179942
             ),
             Event(
                 2,
@@ -48,12 +48,12 @@ class EventMockService {
                 "",
                 "Friday",
                 "11:00 PM",
-                "Street, 3, California, USA",
+                "Museo del Deporte de Gurabo 724G+2V3, Calle Santiago, Gurabo, 00778, Puerto Rico",
                 "+1 100 12 467",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 "2023-10-23 22:00",
-                37.818360349137215,
-                -122.26215171207369
+                18.2570184,
+                -65.9731814
             ),
             Event(
                 3,
@@ -65,12 +65,12 @@ class EventMockService {
                 "",
                 "Friday",
                 "11:00 PM",
-                "Street, 3, California, USA",
+                "AMSI, Inc. Centro de Gestión Única Cayey-Aibonito 4R7P+C5R, Av. José de Diego, Cayey, 00736, Puerto Rico",
                 "+1 100 12 467",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 "2023-10-23 22:00",
-                37.81927759322666,
-                -122.27265058153152
+                18.1136182,
+                -66.240821
             ),
             Event(
                 4,
@@ -85,9 +85,7 @@ class EventMockService {
                 "Street, 3, California, USA",
                 "+1 100 12 467",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "2023-10-23 22:00",
-                37.81829522870205,
-                -122.26691799839777
+                "2023-10-23 22:00"
             ),
             Event(
                 5,

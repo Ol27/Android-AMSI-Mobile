@@ -38,6 +38,7 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
                 jobsAdapter?.submitJobs(jobs)
             }
         }
+        statusBarInset(binding.root)
     }
 
     private fun initFilter() = with(binding) {

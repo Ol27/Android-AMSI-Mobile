@@ -1,6 +1,7 @@
 package com.test.auth.ui
 
 import android.content.Intent
+import android.view.WindowManager
 import com.test.auth.databinding.ActivityForgotPassBinding
 import com.test.common.base.BaseActivity
 
@@ -21,6 +22,7 @@ class ForgotPassActivity :
     }
 
     private fun initInsetters() = with(binding) {
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         statusBarInset(imageView5, imageView3)
     }
 

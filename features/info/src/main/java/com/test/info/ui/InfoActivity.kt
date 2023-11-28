@@ -1,5 +1,6 @@
 package com.test.info.ui
 
+import android.view.WindowManager
 import androidx.viewpager2.widget.ViewPager2
 import com.test.common.base.BaseActivity
 import com.test.info.adapter.InfoAdapter
@@ -50,6 +51,7 @@ class InfoActivity : BaseActivity<ActivityInfoBinding>(ActivityInfoBinding::infl
     }
 
     private fun initInsetters() = with(binding) {
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         navInset(imageView)
         viewPager2.applyInsetter { type(statusBars = true) { padding() } }
     }

@@ -36,6 +36,9 @@
             android:name="eventId"
             android:defaultValue="0L"
             app:argType="long" />
+        <action
+            android:id="@+id/action_eventFragment_to_eventsMapFragment"
+            app:destination="@id/eventsMapFragment" />
     </fragment>
 
     <fragment

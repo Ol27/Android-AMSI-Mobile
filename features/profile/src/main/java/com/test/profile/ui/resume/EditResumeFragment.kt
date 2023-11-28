@@ -29,6 +29,7 @@ class EditResumeFragment :
         binding.btnResumeEditPrev.setOnClickListener {
             binding.vpResumeEdit.currentItem = binding.vpResumeEdit.currentItem - 1
         }
+        statusBarInset(binding.root)
     }
 
     private fun initViewPager() = with(binding.vpResumeEdit) {

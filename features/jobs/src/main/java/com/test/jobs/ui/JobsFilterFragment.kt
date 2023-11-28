@@ -16,5 +16,6 @@ class JobsFilterFragment :
 
         btnFilterApply.setOnClickListener { findNavController().popBackStack() }
         btnFilterBack.setOnClickListener { findNavController().popBackStack() }
+        statusBarInset(binding.root)
     }
 }

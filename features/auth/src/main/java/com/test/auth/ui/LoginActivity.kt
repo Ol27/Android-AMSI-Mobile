@@ -1,6 +1,7 @@
 package com.test.auth.ui
 
 import android.content.Intent
+import android.view.WindowManager
 import com.test.auth.databinding.ActivityLoginBinding
 import com.test.common.base.BaseActivity
 import com.test.common.ext.ViewExt.Companion.setCustomPasswordMask
@@ -34,6 +35,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
     }
 
     private fun initInsetter() = with(binding) {
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         statusBarInset(imageView5, imageView3)
         navInset(materialButton2)
     }

@@ -1,11 +1,11 @@
 package com.test.events.ui
 
 import android.content.Intent
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.test.common.R
 import com.test.common.base.BaseFragment
 import com.test.common.ext.StringExt.Companion.toDate
-import com.test.common.ext.ViewExt.Companion.copyToClipboard
 import com.test.domain.model.Event
 import com.test.events.databinding.FragmentEventBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -23,6 +23,8 @@ class EventFragment : BaseFragment<FragmentEventBinding>(FragmentEventBinding::i
             setupData(event)
             initListeners()
         }
+        statusBarInset(binding.clTopBar)
+        navInset(binding.tvEventAbout)
     }
 
     private fun initListeners() {
@@ -33,7 +35,10 @@ class EventFragment : BaseFragment<FragmentEventBinding>(FragmentEventBinding::i
             likeEvent(event)
         }
         binding.btnEventCopyToClipboard.setOnClickListener {
-            binding.tvEventAddress.copyToClipboard("Address")
+            findNavController().navigate(
+                com.test.navigation.R.id.action_eventFragment_to_eventsMapFragment,
+                bundleOf(EventsMapFragment.ARG_EVENT_ID to event.id)
+            )
         }
         binding.btnEventAddToCalendar.setOnClickListener {
             addEventToCalendar(event)
