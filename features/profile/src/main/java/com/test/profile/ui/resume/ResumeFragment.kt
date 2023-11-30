@@ -21,5 +21,6 @@ class ResumeFragment : BaseFragment<FragmentResumeBinding>(FragmentResumeBinding
         binding.btnResumeDownload.setOnClickListener {
             filePickerLauncher.launch("*/*")
         }
+        statusBarInset(binding.root)
     }
 }

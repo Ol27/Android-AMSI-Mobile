@@ -1,6 +1,8 @@
 package com.test.main
 
+import android.content.Context
 import android.view.View
+import android.view.WindowManager
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationBarView
@@ -44,6 +46,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         initSearchButton()
         addDestinationChangeListener()
         binding.imageView.setImageResource(com.test.common.R.drawable.btn_search)
+        navInset(binding.navBarView, binding.navHostFragment)
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
     }
 
     private fun initSearchButton() = with(binding) {

@@ -11,11 +11,9 @@
         <item name="colorSecondaryVariant">#E6511C</item>
         <item name="colorOnSecondary">#E6511C</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">false</item>
-        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="O_MR1">true</item>
         <item name="android:textViewStyle">@style/NoFontPaddingTextView</item>
         <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
     </style>

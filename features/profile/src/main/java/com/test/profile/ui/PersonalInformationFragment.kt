@@ -35,6 +35,7 @@ class PersonalInformationFragment :
 
     override fun initView() {
         initListeners()
+        statusBarInset(binding.root)
     }
 
     private fun initListeners() = with(binding) {

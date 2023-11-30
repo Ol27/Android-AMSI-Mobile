@@ -2,6 +2,7 @@ package com.test.auth.ui
 
 import android.content.Intent
 import android.graphics.Color
+import android.view.WindowManager
 import com.test.auth.databinding.ActivityCodeBinding
 import com.test.auth.utils.CodeViewUtil
 import com.test.common.base.BaseActivity
@@ -17,6 +18,7 @@ class CodeActivity : BaseActivity<ActivityCodeBinding>(ActivityCodeBinding::infl
     }
 
     private fun initInsetters() = with(binding) {
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         statusBarInset(imageView5, imageView3)
         navInset(btnCodeVerify)
     }

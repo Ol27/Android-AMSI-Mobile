@@ -28,6 +28,7 @@ class EventsListFragment :
         binding.btnEventsListMap.setOnClickListener {
             navigateToEventsMapScreen()
         }
+        statusBarInset(binding.root)
     }
 
     private fun navigateToEventScreen(event: Event) {

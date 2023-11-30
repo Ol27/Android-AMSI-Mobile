@@ -44,6 +44,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
                 binding.actvSearch.isCursorVisible = true
             }
         }
+        statusBarInset(binding.root)
     }
 
     private fun initSearch() = with(binding) {

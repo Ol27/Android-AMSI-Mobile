@@ -243,15 +243,18 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_event_address"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans"
                     android:text="Street, 3, California, USA"
                     android:textColor="@color/grey"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_event_copy_to_clipboard"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0">
 
                 </com.google.android.material.textview.MaterialTextView>
 

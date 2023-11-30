@@ -18,6 +18,8 @@ class SuccessFragment : BaseFragment<FragmentSuccessBinding>(FragmentSuccessBind
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             navigateHome()
         }
+        statusBarInset(binding.root)
+        navInset(binding.btnSuccessOk)
     }
 
     private fun navigateHome() {
